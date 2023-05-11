@@ -62,13 +62,17 @@ h1 {
 }
 
 .green-background {
-  background-color: #C0C9CC;
+  background-color: #c0c9cc;
 }
 
 /* .beach-background {
   background-image: url(FlightPub-Website\Static-Implementation\Images\beach-background.png); 
 } */
 
-.right-icon{
+.right-icon {
   font-size: 80px;
+}
+
+.question {
+  font-size: 160px;
 }
