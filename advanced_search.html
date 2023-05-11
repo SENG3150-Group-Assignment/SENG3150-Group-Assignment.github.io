@@ -98,7 +98,7 @@
         </ul>
       </div>
     </nav>
-    <!------------------------------ Main Body ------------------------------>
+    <!------------------------------ Navbar ------------------------------>
     <div class="green-background px-5" id="main-body">
       <!------------------- Search Bar------------------->
       <section class="mx-5 pt-3" id="search">
@@ -165,7 +165,7 @@
           <div class="row card">
             <div class="col-md-12">
               <h2>Search Results</h2>
-              <table class="table">
+              <table id="resultsTable" class="table table-hover table-md">
                 <thead>
                   <tr>
                     <th>Start Date</th>
@@ -179,15 +179,25 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr onclick="window.location='flight.html'">
                     <td>April 14, 2023</td>
                     <td>April 23, 2023</td>
-                    <td>10:00am</td>
-                    <td>2:00pm</td>
+                    <td>10:00</td>
+                    <td>14:00</td>
                     <td>5 hours</td>
                     <td>Nonstop</td>
                     <td>Delta</td>
-                    <td>$300</td>
+                    <td>$895</td>
+                  </tr>
+                  <tr onclick="window.location='flight.html'">
+                    <td>April 14, 2023</td>
+                    <td>April 23, 2023</td>
+                    <td>01:00</td>
+                    <td>11:00</td>
+                    <td>9 hours</td>
+                    <td>1 Stop</td>
+                    <td>Malaysia Airlines</td>
+                    <td>$1250</td>
                   </tr>
                 </tbody>
               </table>
@@ -196,5 +206,20 @@
         </div>
       </section>
     </div>
+    <!-- Scripts -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/advanced_search.js"></script>
   </body>
 </html>
