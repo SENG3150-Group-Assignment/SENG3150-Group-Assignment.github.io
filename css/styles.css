@@ -65,14 +65,32 @@ h1 {
   background-color: #c0c9cc;
 }
 
-/* .beach-background {
-  background-image: url(FlightPub-Website\Static-Implementation\Images\beach-background.png); 
-} */
-
 .right-icon {
   font-size: 80px;
 }
 
 .question {
   font-size: 160px;
+}
+
+/* watchlist */
+.good-price {
+  background-color: #9fdf9f;
+}
+
+.average-price {
+  background-color: #f9df9f;
+}
+
+.bad-price {
+  background-color: #ef9f9f;
+}
+
+.destination {
+  color: #000;
+  text-decoration: none;
+}
+
+.destination h4 {
+  font-weight: bold;
 }
