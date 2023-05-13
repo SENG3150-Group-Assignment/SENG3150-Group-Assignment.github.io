@@ -45,10 +45,10 @@
   background: #a39d92;
 
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, #a39d92, #f2f1f0);
+  background: -webkit-linear-gradient(to top, #a39d92, #f2f1f0);
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, #a39d92, #f2f1f0);
+  background: linear-gradient(to top, #a39d92, #f2f1f0);
 }
 
 /*------------------------------Heading Fonts------------------------------ */
