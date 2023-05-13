@@ -45,10 +45,10 @@
   background: #a39d92;
 
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, #a39d92, #f2f1f0);
+  background: -webkit-linear-gradient(to top, #a39d92, #f2f1f0);
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, #a39d92, #f2f1f0);
+  background: linear-gradient(to top, #a39d92, #f2f1f0);
 }
 
 /*------------------------------Heading Fonts------------------------------ */
@@ -62,13 +62,35 @@ h1 {
 }
 
 .green-background {
-  background-color: #C0C9CC;
+  background-color: #c0c9cc;
 }
 
-/* .beach-background {
-  background-image: url(FlightPub-Website\Static-Implementation\Images\beach-background.png); 
-} */
-
-.right-icon{
+.right-icon {
   font-size: 80px;
+}
+
+.question {
+  font-size: 160px;
+}
+
+/* watchlist */
+.good-price {
+  background-color: #9fdf9f;
+}
+
+.average-price {
+  background-color: #f9df9f;
+}
+
+.bad-price {
+  background-color: #ef9f9f;
+}
+
+.destination {
+  color: #000;
+  text-decoration: none;
+}
+
+.destination h4 {
+  font-weight: bold;
 }

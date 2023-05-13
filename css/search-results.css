@@ -1,0 +1,65 @@
+/* Search results */
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+  bottom: .5em;
+}
+
+#resultsTable td {
+  border-width: 0px;
+}
+
+#resultsTable tbody tr {
+  cursor: pointer;
+  border-width: 0px;
+}
+
+#resultsTable .dt-hasChild > td{
+  border-top-width: 1px;
+  border-top-color: inherit;
+}
+
+.flightBar0 {
+  background-color: rgba(255, 255, 255, 0);
+  display: inline-block;
+}
+
+.flightBar1 {
+  background-color: #b6dae0;
+  display: inline-block;
+  padding: 3px;
+  border-radius: 3px;
+  font-size: smaller;
+  height: 28px;
+  line-height: 28px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.flightBar2 {
+  background-color: #cfc094;
+  display: inline-block;
+  padding: 3px;
+  font-size: smaller;
+  height: 23px;
+  line-height: 23px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.price {
+  font-weight: 600;
+  font-size: larger;
+}
+
+.dt-hasChild:hover,
+.dt-hasChild:hover + tr {
+  background-color: #e6e6e6;
+}

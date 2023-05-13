@@ -81,8 +81,12 @@
                 class="dropdown-menu dropdown-menu-lg-end"
                 aria-labelledby="dropdownMenuLink"
               >
-                <li><a class="dropdown-item" href="#">My Account</a></li>
-                <li><a class="dropdown-item" href="#">Watchlist</a></li>
+                <li>
+                  <a class="dropdown-item" href="user.html">My Account</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="watchlist.html">Watchlist</a>
+                </li>
                 <li>
                   <a class="dropdown-item" href="#">Accessibility</a>
                 </li>
@@ -98,5 +102,101 @@
     <!------------------------------ End Navbar ------------------------------>
 
     <!------------------------------ Main Body ------------------------------>
+    <div class="pt-5">
+      <h1 class="text-center">Mystery Flights</h1>
+    </div>
+
+    <section id="mystery-main">
+      <div class="px-5 py-4">
+        <form action="destination.html">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card bg-dark text-light">
+                <div class="card-body">
+                  <div class="row m-4">
+                    <div class="card bg-light text-dark">
+                      <div class="card-body">
+                        <div class="form-outline form-white pe-2">
+                          <div class="row">
+                            <div class="col-3">Area:</div>
+                            <div class="col-9">
+                              <input
+                                type="text"
+                                id="location"
+                                class="form-control form-control-lg"
+                                placeholder="Australia"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row m-4">
+                    <div class="card bg-light text-dark">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-3">Number of People:</div>
+                          <div class="col-9">
+                            <input
+                              type="number"
+                              id="location"
+                              class="form-control form-control-lg"
+                              placeholder="2"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row m-4">
+                    <div class="card bg-light text-dark">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-3">Number of Nights:</div>
+                          <div class="col-9">
+                            <input
+                              type="number"
+                              id="location"
+                              class="form-control form-control-lg"
+                              placeholder="5"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row m-4">
+                    <div class="card bg-light text-dark">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-3">Price:</div>
+                          <div class="col-9">
+                            <input
+                              type="number"
+                              id="location"
+                              class="form-control form-control-lg"
+                              placeholder="$2000"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="row"></div>
+              <div class="row">
+                <button class="btn btn-outline-dark btn-lg px-5" type="submit">
+                  Take me somewhere new!
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
   </body>
 </html>
