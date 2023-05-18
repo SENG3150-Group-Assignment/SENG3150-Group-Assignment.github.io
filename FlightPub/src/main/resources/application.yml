@@ -1,0 +1,13 @@
+micronaut:
+  application:
+    name: flightPub
+
+  views:
+    folder: views
+    freemarker:
+      enabled: true
+      
+netty:
+  default:
+    allocator:
+      max-order: 3
