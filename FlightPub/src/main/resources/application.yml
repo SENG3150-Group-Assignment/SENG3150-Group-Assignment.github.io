@@ -6,6 +6,7 @@ micronaut:
     folder: views
     freemarker:
       enabled: true
+      suffix: .ftl
 
 netty:
   default:

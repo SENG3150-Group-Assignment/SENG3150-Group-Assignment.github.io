@@ -6,8 +6,8 @@
   <body>
     <h1>Search Data</h1>
     <p>Location: ${searchData.location}</p>
-    <!-- <p>Destination: ${destination}</p>
-    <p>Start Date: ${startDate}</p>
-    <p>End Date: ${endDate}</p> -->
+    <p>Destination: ${searchData.destination}</p>
+    <p>Start Date: ${searchData.startDate}</p>
+    <p>End Date: ${searchData.endDate}</p>
   </body>
 </html>

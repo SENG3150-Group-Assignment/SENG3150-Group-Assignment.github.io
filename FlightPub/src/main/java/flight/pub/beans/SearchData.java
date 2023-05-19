@@ -6,8 +6,9 @@ import java.time.LocalDate;
 
 import io.micronaut.context.annotation.Prototype;
 import io.micronaut.core.annotation.Introspected;
+import jakarta.inject.Singleton;
 
-@Prototype
+@Singleton
 @Introspected
 public class SearchData {
     // @JsonProperty("location")
