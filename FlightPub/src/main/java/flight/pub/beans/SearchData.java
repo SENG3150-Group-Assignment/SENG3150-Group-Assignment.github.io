@@ -1,20 +1,22 @@
-package flight.pub;
+package flight.pub.beans;
 
 import java.time.LocalDate;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+// import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.micronaut.context.annotation.Prototype;
 import io.micronaut.core.annotation.Introspected;
 
+@Prototype
 @Introspected
 public class SearchData {
-    @JsonProperty("location")
+    // @JsonProperty("location")
     private String location;
-    @JsonProperty("destination")
+    // @JsonProperty("destination")
     private String destination;
-    @JsonProperty("startDate")
+    // @JsonProperty("startDate")
     private LocalDate startDate;
-    @JsonProperty("endDate")
+    // @JsonProperty("endDate")
     private LocalDate endDate;
 
     public SearchData() {

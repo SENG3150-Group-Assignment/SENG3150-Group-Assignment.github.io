@@ -6,17 +6,25 @@ import io.micronaut.http.annotation.Post;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Body;
+import io.micronaut.views.ModelAndView;
 import io.micronaut.views.View;
-// import flight.pub.beans.*;
+import jakarta.inject.Inject;
+import flight.pub.beans.*;
 
 @Controller("/home")
 public class HomeController {
 
+    // private SearchData searchData;
+    // @Inject
+    // public HomeController(SearchData searchData) {
+    //     this.searchData = searchData;
+    // }
+
     @Post(value = "/search", consumes = MediaType.APPLICATION_FORM_URLENCODED)
-    @View("display")
-    public HttpResponse<?> processSearch(@Body SearchData searchData) {
+    public ModelAndView<SearchData> processSearch(@Body SearchData searchData) {
+        // this.searchData = newSearchData;
         System.out.println("WORKING");
-        return HttpResponse.ok().body(searchData.getLocation());
+        return new ModelAndView<>("display", searchData);
     }
 
     // @Post(value = "/search", consumes = MediaType.APPLICATION_FORM_URLENCODED)
@@ -39,7 +47,7 @@ public class HomeController {
     }
 
     @Get("/explore")
-    @View("exploration") // TODO correct
+    @View("exploration")
     public HttpResponse<?> displayExplore() {
         return HttpResponse.ok();
     }

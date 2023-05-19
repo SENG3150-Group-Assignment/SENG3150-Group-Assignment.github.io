@@ -5,7 +5,7 @@
   </head>
   <body>
     <h1>Search Data</h1>
-    <p>Location: ${location}</p>
+    <p>Location: ${searchData.location}</p>
     <!-- <p>Destination: ${destination}</p>
     <p>Start Date: ${startDate}</p>
     <p>End Date: ${endDate}</p> -->

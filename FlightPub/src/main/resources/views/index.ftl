@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Home</title>
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="FlightPub\src\main\resources\static\styles\styles.css">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -138,14 +138,11 @@
                 </div>
                 <div class="row px-2 pt-4">
                   <div class="col-md-12 text-center">
-                    <form action="/home/wizard" method="get">
-                      <button
-                        class="btn btn-outline-dark btn-lg px-5"
-                        type="submit"
-                      >
-                        Wizard
-                      </button>
-                    </form>
+                    <a
+                      class="btn btn-outline-dark btn-lg px-5"
+                      href="/home/wizard"
+                      >Wizard</a
+                    >
 
                     <button
                       class="btn btn-outline-dark btn-lg px-5"
@@ -167,9 +164,7 @@
           </div>
           <div class="row">
             <div class="col-md-2 offset-md-5">
-              <a
-                class="btn btn-outline-dark btn-lg px-5"
-                href="exploration.html"
+              <a class="btn btn-outline-dark btn-lg px-5" href="/home/explore"
                 >Explore</a
               >
             </div>
