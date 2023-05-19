@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Display Example</title>
+    <title>Search Data</title>
   </head>
   <body>
-    <h1>Typed Text:</h1>
-    <p>${name !"missing"}</p>
+    <h1>Search Data</h1>
+    <p>Location: ${location}</p>
+    <!-- <p>Destination: ${destination}</p>
+    <p>Start Date: ${startDate}</p>
+    <p>End Date: ${endDate}</p> -->
   </body>
 </html>
