@@ -11,7 +11,7 @@
     </a>
     <ul class="navbar-nav d-flex flex-row ms-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/home/notifications">
+        <a class="nav-link" href="/navbar/notifications">
           <img
             class="rounded-circle pt-auto pb-auto"
             src="/images/notification-symbol.png"
