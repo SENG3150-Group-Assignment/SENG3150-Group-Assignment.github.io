@@ -23,3 +23,6 @@
 - /destination
     - destination name
     - POST destination.ftl
+
+# Templates
+- Navbar.ftl (need to replace in all ftl documents)
