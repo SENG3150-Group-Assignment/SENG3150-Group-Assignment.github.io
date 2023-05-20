@@ -4,6 +4,12 @@ micronaut:
 
   views:
     folder: views
+
+  router:
+    static-resources:
+      default:
+        enabled: true
+        paths: classpath:static
     freemarker:
       enabled: true
       suffix: .ftl
