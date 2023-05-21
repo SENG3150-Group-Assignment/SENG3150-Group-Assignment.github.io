@@ -26,7 +26,7 @@
                                 </h3>
                             </div>
                             <div class="row p-1 px-2">
-                                ${flight.title}
+                                Flight: ${flight.title}
                             </div>
                         </div>
                         <div class="col-md-3">

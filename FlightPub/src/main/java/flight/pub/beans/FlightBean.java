@@ -19,13 +19,15 @@ public class FlightBean {
     private String arrivalTime;
     private String arrival;
     private String arrivalAirport;
+    private String duration;
 
     public FlightBean() {
     }
 
     public FlightBean(String title, String airlineBrand, String image, String departureDate, String departureTime,
             String departure,
-            String departureAirport, String arrivalDate, String arrivalTime, String arrival, String arrivalAirport) {
+            String departureAirport, String arrivalDate, String arrivalTime, String arrival, String arrivalAirport,
+            String duration) {
         this.title = title;
         this.airlineBrand = airlineBrand;
         this.image = image;
@@ -37,6 +39,7 @@ public class FlightBean {
         this.arrivalTime = arrivalTime;
         this.arrival = arrival;
         this.arrivalAirport = arrivalAirport;
+        this.duration = duration;
         // TODO move repeat variables to array
     }
 
@@ -128,8 +131,16 @@ public class FlightBean {
         this.arrivalAirport = arrivalAirport;
     }
 
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
     public void temp1() {
-        title = "Flight JQ218";
+        title = "JQ218";
         airlineBrand = "Jetstar";
         image = "/images/img-placeholder.png";
         departure = "Sydney (SYD)";
@@ -140,6 +151,7 @@ public class FlightBean {
         arrivalAirport = "Brisbane Airport";
         arrivalDate = "2 March 2024";
         arrivalTime = "8:15pm AEDT";
+        duration = "16h 30m";
 
     }
 
