@@ -8,7 +8,7 @@
                 class="rounded p-0 img-fluid" />
         </div>
         <div class="row text-center">
-            <a href="booking.html" class="p-0 m-0">
+            <a href="/flight/booking" class="p-0 m-0">
                 ${flight.title}
             </a>
         </div>

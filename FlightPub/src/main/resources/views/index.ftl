@@ -41,14 +41,14 @@
                   <div class="row my-5">
                     <#list locations as location>
                       <div class="col-md-3">
-                        <#include "components/destination-item.ftl">
+                        <#include "components/destination-card.ftl">
                       </div>
                     </#list>
                   </div>
                   <div class="row my-5">
                     <#list locations as location>
                       <div class="col-md-3">
-                        <#include "components/destination-item.ftl">
+                        <#include "components/destination-card.ftl">
                       </div>
                     </#list>
                   </div>
