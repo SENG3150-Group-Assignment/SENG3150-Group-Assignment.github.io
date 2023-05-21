@@ -23,6 +23,7 @@ import java.util.Map;
 import flight.pub.beans.DestinationBean;
 import flight.pub.beans.FlightBean;
 import flight.pub.beans.GroupBookingBean;
+import flight.pub.beans.PassengerBean;
 import flight.pub.beans.SearchBean;
 
 @Controller("/flight")
@@ -51,15 +52,14 @@ public class FlightController {
         temp3.temp3();
         temp4.temp4();
 
-        GroupBookingBean groupTemp1 =new GroupBookingBean();
-        GroupBookingBean groupTemp2 =new GroupBookingBean();
-        GroupBookingBean groupTemp3 =new GroupBookingBean();
-        GroupBookingBean groupTemp4 =new GroupBookingBean();
+        GroupBookingBean groupTemp1 = new GroupBookingBean();
+        GroupBookingBean groupTemp2 = new GroupBookingBean();
+        GroupBookingBean groupTemp3 = new GroupBookingBean();
+        GroupBookingBean groupTemp4 = new GroupBookingBean();
         groupTemp1.temp1();
         groupTemp2.temp2();
         groupTemp3.temp1();
         groupTemp4.temp2();
-
 
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);
         configuration.setClassForTemplateLoading(FlightController.class, "/views");
@@ -73,10 +73,27 @@ public class FlightController {
     }
 
     // Display the booking wizard page
-    @Get("/wizard")
-    @View("booking-wizard")
-    public HttpResponse<?> displayWizard() {
-        return HttpResponse.ok();
+    @Get("/booking")
+    @View("booking")
+    public HttpResponse<?> displayWizard() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException, IOException, TemplateException {
+        FlightBean temp1 = new FlightBean();
+        temp1.temp1();
+
+        PassengerBean pTemp1 = new PassengerBean();
+        PassengerBean pTemp2 = new PassengerBean();
+        pTemp1.temp1();
+        pTemp2.temp2();
+
+        Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);
+        configuration.setClassForTemplateLoading(FlightController.class, "/views");
+        StringWriter writer = new StringWriter();
+        Template template = configuration.getTemplate("booking.ftl");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("flight", temp1);
+        map.put("passengers", Arrays.asList(pTemp1, pTemp2));
+        
+        template.process(map, writer);
+        return HttpResponse.ok().body(map);
     }
 
     // Display the explore page
