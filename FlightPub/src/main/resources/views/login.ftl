@@ -21,12 +21,13 @@
                                 <p class="text-white-50 mb-5">
                                     Please enter your login and password!
                                 </p>
-                                <form action="index.html">
+                                <form action="/auth/check" method="post">
                                     <!-- Email Input -->
                                     <div class="form-outline form-white mb-4">
                                         <input
                                             type="email"
                                             id="typeEmailX"
+                                            name="email"
                                             class="form-control form-control-lg"
                                             placeholder="Email" />
                                     </div>
@@ -35,9 +36,17 @@
                                         <input
                                             type="password"
                                             id="typePasswordX"
+                                            name="password"
                                             class="form-control form-control-lg"
                                             placeholder="Password" />
                                     </div>
+                                    <#if authenticated??>
+                                        <#if authenticated>
+                                            <p class="small mb-5 pb-lg-2">
+                                                <a class="text-warning-50" href="#!">Forgot password?</a>
+                                            </p>
+                                        </#if>
+                                    </#if>
                                     <p class="small mb-5 pb-lg-2">
                                         <a class="text-white-50" href="#!">Forgot password?</a>
                                     </p>
@@ -57,7 +66,7 @@
                             <div>
                                 <p class="mb-0">
                                     Don't have an account?
-                                    <a href="sign-up.html" class="text-white-50 fw-bold">Sign Up</a>
+                                    <a href="/auth/signup" class="text-white-50 fw-bold">Sign Up</a>
                                 </p>
                             </div>
                         </div>
