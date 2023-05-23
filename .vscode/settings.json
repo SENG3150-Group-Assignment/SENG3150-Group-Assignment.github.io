@@ -1,3 +1,5 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "appService.preDeployTask": "package:FlightPub",
+    "appService.deploySubpath": "target/FlightPub-0.1.${packaging}"
 }
