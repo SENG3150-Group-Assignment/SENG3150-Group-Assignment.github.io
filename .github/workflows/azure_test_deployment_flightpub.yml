@@ -50,4 +50,4 @@ jobs:
           app-name: 'FlightPub'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7E62BD7BC5104C35BD5459B6A14D9D02 }}
-          package: '*.jar'
+          package: 'FlightPub-0.1.jar'
