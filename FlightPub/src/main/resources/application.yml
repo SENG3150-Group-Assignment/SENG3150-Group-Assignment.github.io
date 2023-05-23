@@ -1,0 +1,20 @@
+micronaut:
+  application:
+    name: flightPub
+
+  views:
+    folder: views
+
+  router:
+    static-resources:
+      default:
+        enabled: true
+        paths: classpath:static
+    freemarker:
+      enabled: true
+      suffix: .ftl
+
+netty:
+  default:
+    allocator:
+      max-order: 3
