@@ -1,0 +1,79 @@
+package flight.pub.controllers;
+
+import io.micronaut.http.annotation.Controller;
+import io.micronaut.http.annotation.Get;
+import io.micronaut.http.annotation.Post;
+import io.micronaut.http.HttpResponse;
+import io.micronaut.http.MediaType;
+import io.micronaut.http.annotation.Body;
+import io.micronaut.views.View;
+import freemarker.core.ParseException;
+import freemarker.template.Configuration;
+import freemarker.template.MalformedTemplateNameException;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
+import freemarker.template.TemplateNotFoundException;
+
+import java.io.IOException;
+import java.io.StringWriter;
+import java.net.URI;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+import flight.pub.beans.DestinationBean;
+import flight.pub.beans.SearchBean;
+import flight.pub.beans.UserBean;
+import flight.pub.controllers.*;
+
+@Controller("/auth")
+public class AuthenticationController {
+    UserBean test = new UserBean();
+
+    @Get("/")
+    @View("login")
+    public HttpResponse<?> loginPage() {
+        return HttpResponse.ok();
+    }
+
+    @Get("/signup")
+    @View("signup")
+    public HttpResponse<?> signupPage() {
+        return HttpResponse.ok();
+    }
+
+    // Handle the search form submission
+    @Post(value = "/check", consumes = MediaType.APPLICATION_FORM_URLENCODED)
+
+    public HttpResponse<?> login(@Body UserBean userData) {
+        if (authenticateUser(userData, test)) {
+            System.out.println("true");
+            URI redirectUri = URI.create("/home");
+            test.setAuthenticated(true);
+            return HttpResponse.seeOther(redirectUri);
+        }
+        System.out.println("false");
+        System.out.println(test.getEmail());
+        System.out.println(test.getPassword());
+        test.setAuthenticated(false);
+        URI redirectUri = URI.create("/auth");
+        return HttpResponse.seeOther(redirectUri).body(test);
+    }
+
+    @Post(value = "/create", consumes = MediaType.APPLICATION_FORM_URLENCODED)
+    @View("login")
+    public HttpResponse<?> signup(@Body UserBean userData) {
+        test = userData;
+        return HttpResponse.ok();
+    }
+
+    private boolean authenticateUser(UserBean user1, UserBean user2) {
+        if (user1.getEmail().compareTo(user2.getEmail()) == 0
+                && user1.getPassword().compareTo(user2.getPassword()) == 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+}
