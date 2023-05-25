@@ -1,6 +1,6 @@
 package flight.pub.beans;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 import io.micronaut.context.annotation.Prototype;
 import io.micronaut.core.annotation.Introspected;
@@ -11,35 +11,30 @@ public class FlightBean {
     private String title;
     private String airlineBrand;
     private String image;
-    private String departureDate;
-    private String departureTime;
+    private LocalDateTime departureTime;
     private String departure;
     private String departureAirport;
-    private String arrivalDate;
-    private String arrivalTime;
+    private LocalDateTime arrivalTime;
     private String arrival;
     private String arrivalAirport;
-    private String duration;
+    private Float cost;
 
     public FlightBean() {
     }
 
-    public FlightBean(String title, String airlineBrand, String image, String departureDate, String departureTime,
-            String departure,
-            String departureAirport, String arrivalDate, String arrivalTime, String arrival, String arrivalAirport,
-            String duration) {
+    public FlightBean(String title, String airlineBrand, String image, LocalDateTime departureTime,
+            String departure, String departureAirport, LocalDateTime arrivalTime, String arrival,
+            String arrivalAirport, Float cost) {
         this.title = title;
         this.airlineBrand = airlineBrand;
         this.image = image;
-        this.departureDate = departureDate;
         this.departureTime = departureTime;
         this.departure = departure;
         this.departureAirport = departureAirport;
-        this.arrivalDate = arrivalDate;
         this.arrivalTime = arrivalTime;
         this.arrival = arrival;
         this.arrivalAirport = arrivalAirport;
-        this.duration = duration;
+        this.cost = cost;
         // TODO move repeat variables to array
     }
 
@@ -67,19 +62,19 @@ public class FlightBean {
         this.image = image;
     }
 
-    public String getDepartureDate() {
-        return departureDate;
-    }
+    // public String getDepartureDate() {
+    //     return departureDate;
+    // }
 
-    public void setDepartureDate(String departureDate) {
-        this.departureDate = departureDate;
-    }
+    // public void setDepartureDate(String departureDate) {
+    //     this.departureDate = departureDate;
+    // }
 
-    public String getDepartureTime() {
+    public LocalDateTime getDepartureTime() {
         return departureTime;
     }
 
-    public void setDepartureTime(String departureTime) {
+    public void setDepartureTime(LocalDateTime departureTime) {
         this.departureTime = departureTime;
     }
 
@@ -99,19 +94,19 @@ public class FlightBean {
         this.departureAirport = leavingAirport;
     }
 
-    public String getArrivalDate() {
-        return arrivalDate;
-    }
+    // public String getArrivalDate() {
+    //     return arrivalDate;
+    // }
 
-    public void setArrivalDate(String arrivalDate) {
-        this.arrivalDate = arrivalDate;
-    }
+    // public void setArrivalDate(String arrivalDate) {
+    //     this.arrivalDate = arrivalDate;
+    // }
 
-    public String getArrivalTime() {
+    public LocalDateTime getArrivalTime() {
         return arrivalTime;
     }
 
-    public void setArrivalTime(String arrivalTime) {
+    public void setArrivalTime(LocalDateTime arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 
@@ -131,28 +126,40 @@ public class FlightBean {
         this.arrivalAirport = arrivalAirport;
     }
 
-    public String getDuration() {
-        return duration;
+    public Float getCost() {
+        return cost;
     }
 
-    public void setDuration(String duration) {
-        this.duration = duration;
+    public void setCost(Float cost) {
+        this.cost = cost;
+    }
+
+    public String toJson(){
+        return "{" +
+            "\"title\":\"" + title + "\"," +
+            "\"airlineBrand\":\"" + airlineBrand + "\"," +
+            "\"image\":\"" + image + "\"," +
+            "\"departureTime\":\"" + departureTime + "\"," +
+            "\"departure\":\"" + departure + "\"," +
+            "\"departureAirport\":\"" + departureAirport + "\"," +
+            "\"arrivalTime\":\"" + arrivalTime + "\"," +
+            "\"arrival\":\"" + arrival + "\"," +
+            "\"arrivalAirport\":\"" + arrivalAirport + "\"," +
+            "\"cost\":\"" + cost + "\"" +
+        "}";
     }
 
     public void temp1() {
         title = "JQ218";
         airlineBrand = "Jetstar";
         image = "/images/img-placeholder.png";
-        departure = "Sydney (SYD)";
+        departure = "SYD";
         departureAirport = "Kingsford Smith Airport";
-        departureDate = "2 March 2024";
-        departureTime = "7:00pm AEDT";
-        arrival = "Brisbane (BNE)";
+        departureTime = LocalDateTime.parse("2024-03-02T17:00:00");
+        arrivalTime = LocalDateTime.parse("2024-03-03T18:15:00");
+        arrival = "BNE";
         arrivalAirport = "Brisbane Airport";
-        arrivalDate = "2 March 2024";
-        arrivalTime = "8:15pm AEDT";
-        duration = "16h 30m";
-
+        cost = 1235.00f;
     }
 
     public void temp2() {
@@ -168,5 +175,30 @@ public class FlightBean {
     public void temp4() {
         title = "Flight XYZ";
         image = "/images/img-placeholder.png";
+    }
+
+    public void f1_1() {
+        title = "CZ326";
+        airlineBrand = "China Southern";
+        image = "/images/img-placeholder.png";
+        departure = "SYD";
+        departureAirport = "Sydney Aiport";
+        departureTime = LocalDateTime.parse("2023-06-09T01:25:00");
+        arrivalTime = LocalDateTime.parse("2023-06-10T10:10:00");
+        arrival = "CAN";
+        arrivalAirport = "Guangzhou Baiyun International Airport";
+        cost = 945f;
+    }
+
+    public void f1_2() {
+        title = "CZ301";
+        airlineBrand = "China Southern";
+        image = "/images/img-placeholder.png";
+        departureTime = LocalDateTime.parse("2023-06-11T12:30:00");
+        arrivalTime = LocalDateTime.parse("2023-06-11T17:05:00");
+        departure = "CAN";
+        departureAirport = "Tribhuvan International Airport";
+        arrival = "KTM";
+        cost = 632f;
     }
 }
