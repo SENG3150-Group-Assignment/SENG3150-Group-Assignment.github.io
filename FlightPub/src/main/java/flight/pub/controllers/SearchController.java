@@ -16,20 +16,16 @@ import freemarker.template.TemplateNotFoundException;
 
 import java.io.IOException;
 import java.io.StringWriter;
-import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import static java.time.temporal.ChronoUnit.MINUTES;
 
 import flight.pub.beans.FlightBean;
-
-import flight.pub.controllers.*;
 
 @Controller("/search")
 public class SearchController {
@@ -77,6 +73,7 @@ public class SearchController {
         trip.put("stops", flights.size() - 1);
         trip.put("airlineBrand", flights.get(0).getAirlineBrand());
         trip.put("departureTime", flights.get(0).getDepartureTime().format(timeFormat));
+        System.out.println(flights.get(0).getDepartureTime().format(timeFormat));
         trip.put("arrivalTime", flights.get(flights.size() - 1).getArrivalTime().format(timeFormat));
         LocalDateTime departureTime = flights.get(0).getDepartureTime();
         String departureDate = departureTime.getDayOfMonth() + " " + departureTime.getMonth() + " " + departureTime.getYear();

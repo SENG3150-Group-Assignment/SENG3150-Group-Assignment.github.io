@@ -46,7 +46,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <tr onclick="window.location='flight.html'">
+                    <#--  <tr onclick="window.location='flight.html'">
                         <td>Air India</td>
                         <td>April 14, 2023</td>
                         <td>09:45</td>
@@ -72,7 +72,7 @@
                         <td>33 hr 5 min</td>
                         <td>3 Stops</td>
                         <td class="price">$1,186</td>
-                    </tr>
+                    </tr>  -->
                     <#list results as res>
                         <#include "components/search-result-comp.ftl">
                     </#list>
@@ -86,7 +86,6 @@
   <!-- Send results to js -->
   <script type="text/javascript">
     var searchResults = new Object();
-    console.log(results.flights)
     searchResults.trips = [];
 
     var temp = [];

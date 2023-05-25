@@ -1,6 +1,7 @@
 package flight.pub.beans;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import io.micronaut.context.annotation.Prototype;
 import io.micronaut.core.annotation.Introspected;
@@ -135,14 +136,16 @@ public class FlightBean {
     }
 
     public String toJson(){
+        DateTimeFormatter isoFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+
         return "{" +
             "\"title\":\"" + title + "\"," +
             "\"airlineBrand\":\"" + airlineBrand + "\"," +
             "\"image\":\"" + image + "\"," +
-            "\"departureTime\":\"" + departureTime + "\"," +
+            "\"departureTime\":\"" + departureTime.format(isoFormat) + "\"," +
             "\"departure\":\"" + departure + "\"," +
             "\"departureAirport\":\"" + departureAirport + "\"," +
-            "\"arrivalTime\":\"" + arrivalTime + "\"," +
+            "\"arrivalTime\":\"" + arrivalTime.format(isoFormat) + "\"," +
             "\"arrival\":\"" + arrival + "\"," +
             "\"arrivalAirport\":\"" + arrivalAirport + "\"," +
             "\"cost\":\"" + cost + "\"" +
@@ -155,8 +158,8 @@ public class FlightBean {
         image = "/images/img-placeholder.png";
         departure = "SYD";
         departureAirport = "Kingsford Smith Airport";
-        departureTime = LocalDateTime.parse("2024-03-02T17:00:00");
-        arrivalTime = LocalDateTime.parse("2024-03-03T18:15:00");
+        departureTime = LocalDateTime.parse("2024-03-02T17:00:01");
+        arrivalTime = LocalDateTime.parse("2024-03-03T18:15:01");
         arrival = "BNE";
         arrivalAirport = "Brisbane Airport";
         cost = 1235.00f;
@@ -183,8 +186,8 @@ public class FlightBean {
         image = "/images/img-placeholder.png";
         departure = "SYD";
         departureAirport = "Sydney Aiport";
-        departureTime = LocalDateTime.parse("2023-06-09T01:25:00");
-        arrivalTime = LocalDateTime.parse("2023-06-10T10:10:00");
+        departureTime = LocalDateTime.parse("2023-06-09T01:25:01");
+        arrivalTime = LocalDateTime.parse("2023-06-10T10:10:01");
         arrival = "CAN";
         arrivalAirport = "Guangzhou Baiyun International Airport";
         cost = 945f;
@@ -194,8 +197,8 @@ public class FlightBean {
         title = "CZ301";
         airlineBrand = "China Southern";
         image = "/images/img-placeholder.png";
-        departureTime = LocalDateTime.parse("2023-06-11T12:30:00");
-        arrivalTime = LocalDateTime.parse("2023-06-11T17:05:00");
+        departureTime = LocalDateTime.parse("2023-06-11T12:30:01");
+        arrivalTime = LocalDateTime.parse("2023-06-11T17:05:01");
         departure = "CAN";
         departureAirport = "Tribhuvan International Airport";
         arrival = "KTM";
