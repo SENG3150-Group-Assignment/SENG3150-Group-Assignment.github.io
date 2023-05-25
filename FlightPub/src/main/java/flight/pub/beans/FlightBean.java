@@ -187,7 +187,7 @@ public class FlightBean {
         departure = "SYD";
         departureAirport = "Sydney Aiport";
         departureTime = LocalDateTime.parse("2023-06-09T01:25:01");
-        arrivalTime = LocalDateTime.parse("2023-06-10T10:10:01");
+        arrivalTime = LocalDateTime.parse("2023-06-09T10:10:01");
         arrival = "CAN";
         arrivalAirport = "Guangzhou Baiyun International Airport";
         cost = 945f;
@@ -197,8 +197,8 @@ public class FlightBean {
         title = "CZ301";
         airlineBrand = "China Southern";
         image = "/images/img-placeholder.png";
-        departureTime = LocalDateTime.parse("2023-06-11T12:30:01");
-        arrivalTime = LocalDateTime.parse("2023-06-11T17:05:01");
+        departureTime = LocalDateTime.parse("2023-06-10T12:30:01");
+        arrivalTime = LocalDateTime.parse("2023-06-10T17:05:01");
         departure = "CAN";
         departureAirport = "Tribhuvan International Airport";
         arrival = "KTM";

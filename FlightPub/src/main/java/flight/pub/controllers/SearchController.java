@@ -58,13 +58,16 @@ public class SearchController {
         HashMap<String, Object> trip = new HashMap<String, Object>();
         trip.put("flights", flights);
         float totalPrice = 0;
-        int totalDuration = 0;
         for (FlightBean flight : flights) {
             totalPrice += flight.getCost();
-            totalDuration += MINUTES.between(flight.getDepartureTime(), flight.getArrivalTime());
         }
-        int hours   = totalDuration / 60;
-        int minutes = totalDuration % 60;
+
+        long durationMinutes = MINUTES.between(
+            flights.get(0).getDepartureTime(), 
+            flights.get(flights.size() - 1).getArrivalTime());
+
+        long hours   = durationMinutes / 60;
+        long minutes = durationMinutes % 60;
 
         DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("MMM dd, yyyy HH:mm:ss");
 
