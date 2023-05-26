@@ -12,197 +12,8 @@ $(document).ready(function () {
         $(this).text(localTime);
     });
 
-    // Read results from the server
-    console.log(searchResults.trips);
-
     // Exapmle data, will be replaced with data from the server
     var data = processTripData(searchResults.trips);
-    // var data = [
-    //     [
-    //         {
-    //             "duration": 12.833,
-    //             "flightNumber": "AA123",
-    //             "state": "Flying",
-    //             "description": "SYD-DEL"
-    //         },
-    //         {
-    //             "duration": 18.833,
-    //             "flightNumber": "AA123",
-    //             "state": "Layover",
-    //             "description": "DEL"
-    //         },
-    //         {
-    //             "duration": 9.083,
-    //             "flightNumber": "AA123",
-    //             "state": "Flying",
-    //             "description": "DEL-CDG"
-    //         },
-    //     ],
-    //     [
-    //         {
-    //             "duration": 12.833,
-    //             "flightNumber": "AA123",
-    //             "state": "Flying",
-    //             "description": "SYD-DEL"
-    //         },
-    //         {
-    //             "duration": 3.75,
-    //             "flightNumber": "AA123",
-    //             "state": "Layover",
-    //             "description": "DEL"
-    //         },
-    //         {
-    //             "duration": 4.583,
-    //             "flightNumber": "AA123",
-    //             "state": "Flying",
-    //             "description": "DEL-BAH"
-    //         },
-    //         {
-    //             "duration": 1.75,
-    //             "flightNumber": "AA123",
-    //             "state": "Layover",
-    //             "description": "BAH"
-    //         },
-    //         {
-    //             "duration": 7.333,
-    //             "flightNumber": "AA123",
-    //             "state": "Flying",
-    //             "description": "BAH-CDG"
-    //         },
-    //     ],
-    //     [
-    //         {
-    //             "duration": 2.833,
-    //             "flightNumber": "AA123",
-    //             "state": "Landed",
-    //             "description": "SYD"
-    //         },
-    //         {
-    //             "duration": 8.333,
-    //             "flightNumber": "AA123",
-    //             "state": "Flying",
-    //             "description": "SYD-SIN"
-    //         },
-    //         {
-    //             "duration": 1.833,
-    //             "flightNumber": "AA123",
-    //             "state": "Layover",
-    //             "description": "SIN"
-    //         },
-    //         {
-    //             "duration": 1.166,
-    //             "flightNumber": "AA123",
-    //             "state": "Flying",
-    //             "description": "SIN-KUL"
-    //         },
-    //         {
-    //             "duration": 3.75,
-    //             "flightNumber": "AA123",
-    //             "state": "Layover",
-    //             "description": "KUL"
-    //         },
-    //         {
-    //             "duration": 9,
-    //             "flightNumber": "AA123",
-    //             "state": "Flying",
-    //             "description": "KUL-KWI"
-    //         },
-    //         {
-    //             "duration": 2.666,
-    //             "flightNumber": "AA123",
-    //             "state": "Layover",
-    //             "description": "KWI"
-    //         },
-    //         {
-    //             "duration": 6.666,
-    //             "flightNumber": "AA123",
-    //             "state": "Flying",
-    //             "description": "KWI-DCG"
-    //         },
-    //     ],
-    //     [
-    //         {
-    //             "duration": 12.833,
-    //             "flightNumber": "AA123",
-    //             "state": "Flying",
-    //             "description": "SYD-DEL"
-    //         },
-    //         {
-    //             "duration": 3.75,
-    //             "flightNumber": "AA123",
-    //             "state": "Layover",
-    //             "description": "DEL"
-    //         },
-    //         {
-    //             "duration": 4.583,
-    //             "flightNumber": "AA123",
-    //             "state": "Flying",
-    //             "description": "DEL-BAH"
-    //         },
-    //         {
-    //             "duration": 1.75,
-    //             "flightNumber": "AA123",
-    //             "state": "Layover",
-    //             "description": "BAH"
-    //         },
-    //         {
-    //             "duration": 7.333,
-    //             "flightNumber": "AA123",
-    //             "state": "Flying",
-    //             "description": "BAH-CDG"
-    //         },
-    //     ],
-    //     [
-    //         {
-    //             "duration": 2.833,
-    //             "flightNumber": "AA123",
-    //             "state": "Landed",
-    //             "description": "SYD"
-    //         },
-    //         {
-    //             "duration": 8.333,
-    //             "flightNumber": "AA123",
-    //             "state": "Flying",
-    //             "description": "SYD-SIN"
-    //         },
-    //         {
-    //             "duration": 1.833,
-    //             "flightNumber": "AA123",
-    //             "state": "Layover",
-    //             "description": "SIN"
-    //         },
-    //         {
-    //             "duration": 1.166,
-    //             "flightNumber": "AA123",
-    //             "state": "Flying",
-    //             "description": "SIN-KUL"
-    //         },
-    //         {
-    //             "duration": 3.75,
-    //             "flightNumber": "AA123",
-    //             "state": "Layover",
-    //             "description": "KUL"
-    //         },
-    //         {
-    //             "duration": 9,
-    //             "flightNumber": "AA123",
-    //             "state": "Flying",
-    //             "description": "KUL-KWI"
-    //         },
-    //         {
-    //             "duration": 2.666,
-    //             "flightNumber": "AA123",
-    //             "state": "Layover",
-    //             "description": "KWI"
-    //         },
-    //         {
-    //             "duration": 6.666,
-    //             "flightNumber": "AA123",
-    //             "state": "Flying",
-    //             "description": "KWI-DCG"
-    //         },
-    //     ]
-    // ]
 
     // loop over every row in the table
     table.rows().every(function () {
@@ -248,25 +59,32 @@ function processTripData(trips){
     var data = [];
 
     for(var trip of trips){
-        var newTrip = [
-            {
-                description: trip.departure,
-                state: "Landed",
-                duration: (trip.departureTime - earliest) / totalDuration * 100
-            }
-        ];
+        lastArrival = earliest;
+        var newTrip = [];
 
         for(var leg of trip){
-            var arrival = Date.parse(leg.arrivalTime);
+            // Read dates
             var departure = Date.parse(leg.departureTime);
+            var arrival = Date.parse(leg.arrivalTime);
             var duration = (arrival - departure);
             console.log("duration: " + duration);
+            console.log(leg.departure + " " + leg.arrival)
+
+            // Add layover
             newTrip.push({
-                duration: duration / totalDuration * 100,
+                    description: leg.departure,
+                    state: lastArrival==earliest ? "Landed" : "Layover",
+                    duration: (departure - lastArrival) / totalDuration * 100,
+            });
+
+            // Add flight
+            newTrip.push({
                 flightNumber: leg.title,
+                description: leg.departure + "-" + leg.arrival,
                 state: "Flying",
-                description: leg.departure + "-" + leg.arrival
+                duration: duration / totalDuration * 100,
             })
+            lastArrival = arrival;
         }
         data.push(newTrip);
     }

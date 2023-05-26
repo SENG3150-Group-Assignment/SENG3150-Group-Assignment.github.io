@@ -76,7 +76,6 @@ public class SearchController {
         trip.put("stops", flights.size() - 1);
         trip.put("airlineBrand", flights.get(0).getAirlineBrand());
         trip.put("departureTime", flights.get(0).getDepartureTime().format(timeFormat));
-        System.out.println(flights.get(0).getDepartureTime().format(timeFormat));
         trip.put("arrivalTime", flights.get(flights.size() - 1).getArrivalTime().format(timeFormat));
         LocalDateTime departureTime = flights.get(0).getDepartureTime();
         String departureDate = departureTime.getDayOfMonth() + " " + departureTime.getMonth() + " " + departureTime.getYear();
