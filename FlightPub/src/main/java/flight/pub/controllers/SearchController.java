@@ -44,6 +44,28 @@ public class SearchController {
         HashMap<String, Object> trip1 = MakeTrip(flights);
         trips.add(trip1);
 
+        // Create trip 2
+        FlightBean f2_1 = new FlightBean();
+        FlightBean f2_2 = new FlightBean();
+        FlightBean f2_3 = new FlightBean();
+        FlightBean f2_4 = new FlightBean();
+        f2_1.f2_1();
+        f2_2.f2_2();
+        f2_3.f2_3();
+        f2_4.f2_4();
+        flights = Arrays.asList(f2_1, f2_2, f2_3, f2_4);
+        HashMap<String, Object> trip2 = MakeTrip(flights);
+        trips.add(trip2);
+
+        // Create trip 3
+        FlightBean f3_1 = new FlightBean();
+        FlightBean f3_2 = new FlightBean();
+        f3_1.f3_1();
+        f3_2.f3_2();
+        flights = Arrays.asList(f3_1, f3_2);
+        HashMap<String, Object> trip3 = MakeTrip(flights);
+        trips.add(trip3);
+
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);
         configuration.setClassForTemplateLoading(SearchController.class, "/views");
         StringWriter writer = new StringWriter();

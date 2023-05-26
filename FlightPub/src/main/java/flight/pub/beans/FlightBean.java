@@ -181,27 +181,106 @@ public class FlightBean {
     }
 
     public void f1_1() {
-        title = "CZ326";
-        airlineBrand = "China Southern";
+        title = "MU326";
+        airlineBrand = "China Eastern";
         image = "/images/img-placeholder.png";
+        departureTime = LocalDateTime.parse("2023-06-09T01:00:00");
+        arrivalTime = LocalDateTime.parse("2023-06-09T08:15:00");
         departure = "SYD";
         departureAirport = "Sydney Aiport";
-        departureTime = LocalDateTime.parse("2023-06-09T01:25:01");
-        arrivalTime = LocalDateTime.parse("2023-06-09T10:10:01");
-        arrival = "CAN";
-        arrivalAirport = "Guangzhou Baiyun International Airport";
-        cost = 945f;
+        arrival = "PVG";
+        arrivalAirport = "Shanghai Pudong International Airport";
+        cost = 1356f;
     }
 
     public void f1_2() {
         title = "CZ301";
         airlineBrand = "China Southern";
         image = "/images/img-placeholder.png";
-        departureTime = LocalDateTime.parse("2023-06-10T12:30:01");
-        arrivalTime = LocalDateTime.parse("2023-06-10T17:05:01");
-        departure = "CAN";
-        departureAirport = "Tribhuvan International Airport";
-        arrival = "KTM";
-        cost = 632f;
+        departureTime = LocalDateTime.parse("2023-06-10T13:15:00");
+        arrivalTime = LocalDateTime.parse("2023-06-11T01:30:00");
+        departure = "PVG";
+        arrival = "CDG";
+        departureAirport = "Shanghai Pudong International Airport";
+        arrivalAirport = "Paris Charles de Gaulle Airport";
+        cost = 1063f;
+    }
+
+    public void f2_1() {
+        title = "TR3";
+        airlineBrand = "Scoot";
+        image = "/images/img-placeholder.png";
+        departureTime = LocalDateTime.parse("2023-06-09T02:35:00");
+        arrivalTime = LocalDateTime.parse("2023-06-09T10:55:00");
+        departure = "SYD";
+        departureAirport = "Sydney Aiport";
+        arrival = "SIN";
+        arrivalAirport = "Singapore Changi Airport";
+        cost = 951f;
+    }
+
+    public void f2_2() {
+        title = "TR712";
+        airlineBrand = "Scoot";
+        image = "/images/img-placeholder.png";
+        departureTime = LocalDateTime.parse("2023-06-09T21:35:00");
+        arrivalTime = LocalDateTime.parse("2023-06-10T08:55:00");
+        departure = "SIN";
+        arrival = "ATH";
+        departureAirport = "Singapore Changi Airport";
+        arrivalAirport = "Athens International Airport";
+        cost = 823f;
+    }
+
+    public void f2_3() {
+        title = "A3664";
+        airlineBrand = "Aegean";
+        image = "/images/img-placeholder.png";
+        departureTime = LocalDateTime.parse("2023-06-10T13:20:00");
+        arrivalTime = LocalDateTime.parse("2023-06-10T15:55:00");
+        departure = "ATH";
+        arrival = "MXP";
+        departureAirport = "Athens International Airport";
+        arrivalAirport = "Malpensa Airport";
+        cost = 275f;
+    }
+
+    public void f2_4() {
+        title = "U23813";
+        airlineBrand = "easyJet";
+        image = "/images/img-placeholder.png";
+        departureTime = LocalDateTime.parse("2023-06-10T17:25:00");
+        arrivalTime = LocalDateTime.parse("2023-06-10T18:55:00");
+        departure = "MXP";
+        arrival = "CDG";
+        departureAirport = "Malpensa Airport";
+        arrivalAirport = "Paris Charles de Gaulle Airport";
+        cost = 257f;
+    }
+
+    public void f3_1() {
+        title = "EY451";
+        airlineBrand = "Etihad Airways";
+        image = "/images/img-placeholder.png";
+        departureTime = LocalDateTime.parse("2023-06-09T05:05:00");
+        arrivalTime = LocalDateTime.parse("2023-06-09T19:35:00");
+        departure = "SYD";
+        arrival = "AUH";
+        departureAirport = "Sydney Aiport";
+        arrivalAirport = "Abu Dhabi International Airport";
+        cost = 1863f;
+    }
+
+    public void f3_2() {
+        title = "EY31";
+        airlineBrand = "Etihad Airways";
+        image = "/images/img-placeholder.png";
+        departureTime = LocalDateTime.parse("2023-06-09T22:25:00");
+        arrivalTime = LocalDateTime.parse("2023-06-10T05:45:00");
+        departure = "AUH";
+        arrival = "CDG";
+        departureAirport = "Abu Dhabi International Airport";
+        arrivalAirport = "Paris Charles de Gaulle Airport";
+        cost = 1089f;
     }
 }
