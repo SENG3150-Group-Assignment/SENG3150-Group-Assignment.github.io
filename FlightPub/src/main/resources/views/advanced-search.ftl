@@ -46,38 +46,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <#--  <tr onclick="window.location='flight.html'">
-                        <td>Air India</td>
-                        <td>April 14, 2023</td>
-                        <td>09:45</td>
-                        <td>18:30</td>
-                        <td>40 hr 45 min</td>
-                        <td>1 stop</td>
-                        <td class="price">$1,128</td>
-                    </tr>
-                    <tr onclick="window.location='flight.html'">
-                        <td>Gulf Air</td>
-                        <td>April 14, 2023</td>
-                        <td>09:45</td>
-                        <td>07:55</td>
-                        <td>30 hr 10 min</td>
-                        <td>2 Stops</td>
-                        <td class="price">$1,359</td>
-                    </tr>
-                    <tr onclick="window.location='flight.html'">
-                        <td>Virgin, Air Asia</td>
-                        <td>April 14, 2023</td>
-                        <td>12:35</td>
-                        <td>13:40</td>
-                        <td>33 hr 5 min</td>
-                        <td>3 Stops</td>
-                        <td class="price">$1,186</td>
-                    </tr>  -->
-                    <#list results as res>
+                    <#list results as trip>
                         <#include "components/search-result-comp.ftl">
                     </#list>
                 </tbody>
               </table>
+              <#--  Flight Value hidden form  -->
+              <form style="display: none" action="/flight" method="POST" id="form">
+                <input type="hidden" id="var1" name="var1" value="1"/>
+                <input type="hidden" id="var2" name="var2" value="2"/>
+              </form>
             </div>
           </div>
         </div>

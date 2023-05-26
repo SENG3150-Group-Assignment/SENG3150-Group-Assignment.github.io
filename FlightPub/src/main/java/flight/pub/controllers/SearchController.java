@@ -26,13 +26,15 @@ import java.time.format.DateTimeFormatter;
 import static java.time.temporal.ChronoUnit.MINUTES;
 
 import flight.pub.beans.FlightBean;
+import flight.pub.beans.SearchBean;
 
 @Controller("/search")
 public class SearchController {
-    @Get("/")
+    @Post(value="/", consumes = MediaType.APPLICATION_FORM_URLENCODED)
     @View("advanced-search")
-    public HttpResponse<?> search() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException,
-    IOException, TemplateException {
+    public HttpResponse<?> search(@Body SearchBean searchData)
+            throws TemplateNotFoundException, MalformedTemplateNameException, ParseException,
+            IOException, TemplateException {
         List<Object> trips = new ArrayList<Object>();
 
         // Create trip 1
@@ -72,6 +74,7 @@ public class SearchController {
         Template template = configuration.getTemplate("advanced-search.ftl");
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("results", trips);
+        map.put("searchData", searchData);
         template.process(map, writer);
         return HttpResponse.ok().body(map);
     }
