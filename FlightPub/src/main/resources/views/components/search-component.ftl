@@ -1,6 +1,6 @@
 <div class="card bg-light text-white w-75 p-3">
   <div class="card-body p-2 text-center">
-    <form action="/home/search" method="post">
+    <form action="/search" method="post">
       <div class="row">
         <div class="form-outline col-md-3 form-white pe-2">
           <input

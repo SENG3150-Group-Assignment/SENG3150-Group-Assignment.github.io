@@ -1,9 +1,9 @@
-<tr onclick="window.location='flight.html'" class="dt-hasChild" odd>
-    <td>${res.airlineBrand}</td>
-    <td>${res.departureDate}</td>
-    <td class="utc-time">${res.departureTime}</td>
-    <td class="utc-time">${res.arrivalTime}</td>
-    <td>${res.duration}</td>
-    <td>${res.stops} Stops</td>
-    <td class="price">&#36;${res.cost}</td>
+<tr onclick="" odd>
+    <td>${trip.airlineBrand}</td>
+    <td>${trip.departureDate}</td>
+    <td class="utc-time">${trip.departureTime}</td>
+    <td class="utc-time">${trip.arrivalTime}</td>
+    <td>${trip.duration}</td>
+    <td>${trip.stops} Stops</td>
+    <td class="price">&#36;${trip.cost}</td>
 </tr>

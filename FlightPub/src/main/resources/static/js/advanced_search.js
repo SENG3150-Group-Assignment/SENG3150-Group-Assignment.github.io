@@ -54,7 +54,6 @@ function processTripData(trips){
     var earliest = findEarliestStart(trips);
     var latest = findLatestEnd(trips);
     var totalDuration = latest - earliest;
-    console.log("totalDuration: " + totalDuration);
 
     var data = [];
 
@@ -67,8 +66,6 @@ function processTripData(trips){
             var departure = Date.parse(leg.departureTime);
             var arrival = Date.parse(leg.arrivalTime);
             var duration = (arrival - departure);
-            console.log("duration: " + duration);
-            console.log(leg.departure + " " + leg.arrival)
 
             // Add layover
             newTrip.push({
