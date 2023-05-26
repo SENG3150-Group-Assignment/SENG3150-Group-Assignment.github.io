@@ -20,7 +20,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import flight.pub.beans.DestinationBean;
 import flight.pub.beans.FlightBean;
 import flight.pub.beans.GroupBookingBean;
 import flight.pub.beans.PassengerBean;
