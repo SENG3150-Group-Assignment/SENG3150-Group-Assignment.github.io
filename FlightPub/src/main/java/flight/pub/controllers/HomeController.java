@@ -72,4 +72,10 @@ public class HomeController {
     public HttpResponse<?> displayExplore() {
         return HttpResponse.ok();
     }
+    @Get("/destination")
+    @View("destination")
+    public HttpResponse<?> destination() {
+        return HttpResponse.ok();
+    }
+    
 }

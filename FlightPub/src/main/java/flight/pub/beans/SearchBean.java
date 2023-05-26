@@ -2,9 +2,7 @@ package flight.pub.beans;
 
 import java.time.LocalDate;
 
-// import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.micronaut.context.annotation.Prototype;
 import io.micronaut.core.annotation.Introspected;
 import jakarta.inject.Singleton;
 

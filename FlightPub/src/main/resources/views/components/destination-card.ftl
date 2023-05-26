@@ -1,6 +1,6 @@
 <div class="card bg-light text-dark">
     <div class="card-body text-center">
-        <a class="destination" href="destination.html">
+        <a class="destination" href="/home/destination">
             <img
                 src=${location.image}
                 class="rounded img-fluid"
