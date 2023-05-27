@@ -1,3 +1,20 @@
+/*
+ * advanced_search.js
+ * FlightPub Application
+ * 
+ * This file is part of FlightPub, a web-based flight booking application.
+ * Copyright (c) 2023 Yuquing Inc. All rights reserved.
+ * 
+ * This script is responsible for rendering flight search results on the webpage.
+ * It utilizes DataTables to create an interactive and searchable table.
+ * Converts table data from UTC to local time.
+ * The flight data is initially provided by the server and processed using the processTripData()
+ * function. The format() function generates the HTML code for each row in the table, displaying
+ * flight information. The findEarliestStart() and findLatestEnd() functions are used to determine
+ * the earliest start time and latest end time among all the flights which is used to calculate
+ * the total duration of the trip.
+*/
+
 $(document).ready(function () {
     // Make the table a datatable
     var table = $('#resultsTable').DataTable();

@@ -1,3 +1,16 @@
+/*
+ * HomeController.java
+ * FlightPub Application
+ * 
+ * This file is part of FlightPub, a web-based flight booking application.
+ * Copyright (c) 2023 Yuquing Inc. All rights reserved.
+ * 
+ * HomeController handles home-related operations in the FlightPub application.
+ * It provides endpoints for the home page, search form submission, booking wizard, and
+ * exploration. The controller interacts with destination and search bean classes to retrieve 
+ * and display data.
+ */
+
 package flight.pub.controllers;
 
 import io.micronaut.http.annotation.Controller;

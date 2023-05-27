@@ -1,3 +1,15 @@
+/*
+ * UserBean.java
+ * FlightPub Application
+ * 
+ * This file is part of FlightPub, a web-based flight booking application.
+ * Copyright (c) 2023 Yuquing Inc. All rights reserved.
+ * 
+ * UserBean represents a user who has registered in the FlightPub application.
+ * It stores user information such as email, first name, last name,
+ * accessibility preference, password, mobile number, and authentication status.
+ */
+
 package flight.pub.beans;
 
 import io.micronaut.context.annotation.Prototype;

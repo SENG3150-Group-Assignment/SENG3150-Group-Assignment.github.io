@@ -1,3 +1,15 @@
+/*
+ * AuthenticationController.java
+ * FlightPub Application
+ * 
+ * This file is part of FlightPub, a web-based flight booking application.
+ * Copyright (c) 2023 Yuquing Inc. All rights reserved.
+ * 
+ * AuthenticationController handles authentication-related operations in the FlightPub application.
+ * It provides endpoints for login, signup, and user authentication.
+ * The controller interacts with UserBean to perform authentication operations.
+ */
+
 package flight.pub.controllers;
 
 import io.micronaut.http.annotation.Controller;
@@ -8,10 +20,7 @@ import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.views.View;
 
-
-
 import java.net.URI;
-
 
 import flight.pub.beans.UserBean;
 

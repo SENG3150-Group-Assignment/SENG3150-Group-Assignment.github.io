@@ -1,3 +1,12 @@
+<!-- 
+index.ftl
+FlightPub Application
+Copyright (c)  2023 Yuquing Inc. All rights reserved.
+
+The home page of the FlightPub application. This page contains the search bar, the explore button
+and the recommendation section.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 

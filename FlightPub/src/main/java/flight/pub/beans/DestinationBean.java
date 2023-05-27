@@ -1,3 +1,15 @@
+/*
+ * DestinationBean.java
+ * FlightPub Application
+ * 
+ * This file is part of FlightPub, a web-based flight booking application.
+ * Copyright (c) 2023 Yuquing Inc. All rights reserved.
+ * 
+ * DestinationBean holds data for a destination within the FlightPub application.
+ * It represents a specific location or event for which a user can search for flights.
+ */
+
+
 package flight.pub.beans;
 
 import io.micronaut.context.annotation.Prototype;

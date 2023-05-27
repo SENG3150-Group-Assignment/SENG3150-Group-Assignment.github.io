@@ -1,3 +1,12 @@
+<!-- 
+advanced-search-bar-comp.ftl
+FlightPub Application
+Copyright (c)  2023 Yuquing Inc. All rights reserved.
+
+This component contains the advanced search bar component which has the fields of the search bar
+with the addition of the flight class, maximum stopovers and passenger count fields.
+-->
+
 <div class="card bg-light text-white w-75 p-3">
   <div class="card-body p-2 text-center">
     <form action="/search" method="post">

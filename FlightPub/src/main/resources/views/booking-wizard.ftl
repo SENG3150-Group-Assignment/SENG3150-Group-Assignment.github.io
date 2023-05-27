@@ -1,3 +1,12 @@
+<!-- 
+booking-wizard.ftl
+FlightPub Application
+Copyright (c)  2023 Yuquing Inc. All rights reserved.
+
+This file is the template for the booking wizard page. It allows the user to perform the booking
+process step-by-step. It is not fully implemented in the current version.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 

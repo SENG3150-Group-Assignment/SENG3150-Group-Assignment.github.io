@@ -1,3 +1,15 @@
+/*
+ * NavbarController.java
+ * FlightPub Application
+ * 
+ * This file is part of FlightPub, a web-based flight booking application.
+ * Copyright (c) 2023 Yuquing Inc. All rights reserved.
+ * 
+ * NavbarController handles operations related to the navigation bar in the FlightPub application.
+ * It provides endpoints for the different navigation links such as the homepage, notifications,
+ * user account, and login/signup pages.
+ */
+
 package flight.pub.controllers;
 
 import io.micronaut.http.annotation.Controller;

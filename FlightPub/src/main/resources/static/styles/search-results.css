@@ -1,3 +1,14 @@
+/*
+ * search-results.css
+ * FlightPub Application
+ * 
+ * This file is part of FlightPub, a web-based flight booking application.
+ * Copyright (c) 2023 Yuquing Inc. All rights reserved.
+ * 
+ * This CSS code provides styling for the flight search results table and its elements.
+ * It includes styles for sorting indicators, table cells, table rows, flight bars, and prices.
+*/
+
 /* Search results */
 table.dataTable thead .sorting:after,
 table.dataTable thead .sorting:before,

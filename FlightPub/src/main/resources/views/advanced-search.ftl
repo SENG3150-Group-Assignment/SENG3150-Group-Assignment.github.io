@@ -1,3 +1,13 @@
+<!-- 
+advanced-search.ftl
+FlightPub Application
+Copyright (c)  2023 Yuquing Inc. All rights reserved.
+
+This file contains the template for the advanced search page which is used to display the results
+of a search, allowing sorting and filtering of the results. It contains the advanced search bar
+and allows users to select the flights they want to book.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

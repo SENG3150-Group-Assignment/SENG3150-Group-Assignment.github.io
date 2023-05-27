@@ -1,3 +1,11 @@
+<!-- 
+signup.ftl
+FlightPub Application
+Copyright (c) 2023 Yuquing Inc. All rights reserved.
+
+This is the template for the signup page where the user can create a flightpub account.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 

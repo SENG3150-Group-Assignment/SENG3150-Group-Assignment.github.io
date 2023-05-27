@@ -1,3 +1,13 @@
+<!-- 
+user.ftl
+FlightPub Application
+Copyright (c) 2023 Yuquing Inc. All rights reserved.
+
+This is the template for user account page where user can view their account details
+upcoming flights, previous flights, group bookings and watchlist. For each of the flights shown to
+the user they may search for the flight details.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,3 +1,12 @@
+<!-- 
+search-component.ftl
+FlightPub Application
+Copyright (c)  2023 Yuquing Inc. All rights reserved.
+
+This component represents the basic search bar on the home page, containing the location,
+destination, start date, and end date fields.
+-->
+
 <div class="card bg-light text-white w-75 p-3">
   <div class="card-body p-2 text-center">
     <form action="/search" method="post">

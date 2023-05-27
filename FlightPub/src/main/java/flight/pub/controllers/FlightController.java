@@ -1,3 +1,15 @@
+/*
+ * FlightController.java
+ * FlightPub Application
+ * 
+ * This file is part of FlightPub, a web-based flight booking application.
+ * Copyright (c) 2023 Yuquing Inc. All rights reserved.
+ * 
+ * FlightController handles flight-related operations in the FlightPub application.
+ * It provides endpoints for flight search, flight details, booking, and exploration.
+ * The controller interacts with various bean classes to retrieve and display flight information.
+ */
+
 package flight.pub.controllers;
 
 import io.micronaut.http.annotation.Controller;
@@ -28,17 +40,27 @@ import flight.pub.beans.SearchBean;
 @Controller("/flight")
 public class FlightController {
 
-    // Handle the search form submission
+    // Handle the search form submission DEBUGGING ONLY
     @Post(value = "/blank", consumes = MediaType.APPLICATION_FORM_URLENCODED) // TODO get form to return json
     @View("display")
     public HttpResponse<?> processSearch(@Body SearchBean searchData) {
         return HttpResponse.ok().body(searchData);
     }
 
-    // Display the home page
+    // For debugging purposes, show a page even when using get
+    @Get("/")
+    @View("flight")
+    public HttpResponse<?> flightGet() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException,
+            IOException, TemplateException {
+        
+        return flightPost();
+    }
+
+    // Display the flight page
+    // TODO Make the post take input to display the correct flight
     @Post("/")
     @View("flight")
-    public HttpResponse<?> index() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException,
+    public HttpResponse<?> flightPost() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException,
             IOException, TemplateException {
 
         // Dummy data
@@ -46,10 +68,10 @@ public class FlightController {
         FlightBean temp2 = new FlightBean();
         FlightBean temp3 = new FlightBean();
         FlightBean temp4 = new FlightBean();
-        temp1.temp1();
-        temp2.temp2();
-        temp3.temp3();
-        temp4.temp4();
+        temp1.f2_1();
+        temp2.f2_2();
+        temp3.f2_3();
+        temp4.f2_4();
 
         GroupBookingBean groupTemp1 = new GroupBookingBean();
         GroupBookingBean groupTemp2 = new GroupBookingBean();
@@ -63,18 +85,20 @@ public class FlightController {
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);
         configuration.setClassForTemplateLoading(FlightController.class, "/views");
         StringWriter writer = new StringWriter();
-        Template template = configuration.getTemplate("user.ftl");
+        Template template = configuration.getTemplate("flight.ftl");
         Map<String, Object> map = new HashMap<String, Object>();
+        System.out.println(temp1.getDepartureTime());
         map.put("flights", Arrays.asList(temp1, temp2, temp3, temp4));
         map.put("groups", Arrays.asList(groupTemp1, groupTemp2, groupTemp3, groupTemp4));
+        map.put("flight", temp1);
         template.process(map, writer);
         return HttpResponse.ok().body(map);
     }
 
-    // Display the booking wizard page
+    // Display the booking details page
     @Get("/booking")
     @View("booking")
-    public HttpResponse<?> displayWizard() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException, IOException, TemplateException {
+    public HttpResponse<?> displayBooking() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException, IOException, TemplateException {
         FlightBean temp1 = new FlightBean();
         temp1.temp1();
 
@@ -100,5 +124,24 @@ public class FlightController {
     @View("exploration")
     public HttpResponse<?> displayExplore() {
         return HttpResponse.ok();
+    }
+
+    // Mystery flight page
+    @Get("/mystery")
+    @View("mystery-flight")
+    public HttpResponse<?> displayMystery() throws TemplateNotFoundException,
+        MalformedTemplateNameException, ParseException, IOException, TemplateException {
+        FlightBean temp1 = new FlightBean();
+        temp1.temp1();
+
+        Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);
+        configuration.setClassForTemplateLoading(FlightController.class, "/views");
+        StringWriter writer = new StringWriter();
+        Template template = configuration.getTemplate("mystery-flight.ftl");
+        Map<String, Object> map = new HashMap<String, Object>();
+        System.out.println(temp1.getDepartureTime());
+        map.put("flight", temp1);
+        template.process(map, writer);
+        return HttpResponse.ok().body(map);
     }
 }

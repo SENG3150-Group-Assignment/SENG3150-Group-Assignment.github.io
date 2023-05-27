@@ -1,3 +1,14 @@
+/*
+ * SearchController.java
+ * FlightPub Application
+ * 
+ * This file is part of FlightPub, a web-based flight booking application.
+ * Copyright (c) 2023 Yuquing Inc. All rights reserved.
+ * 
+ * SearchController handles operations related to flight search in the FlightPub application.
+ * It provides endpoints for performing flight searches, both via GET and POST methods.
+ */
+
 package flight.pub.controllers;
 
 import io.micronaut.http.annotation.Controller;
@@ -33,17 +44,18 @@ import flight.pub.beans.SearchBean;
 public class SearchController {
     @Get("/")
     @View("advanced-search")
-    public HttpResponse<?> index() 
+    public HttpResponse<?> searchGet() 
             throws TemplateNotFoundException, MalformedTemplateNameException, ParseException,
             IOException, TemplateException{
-        // If a get requesti is used send an empty search bean to the view and show no results
+        // If a get request is used send an empty search bean to the view and show no results
         SearchBean searchData = new SearchBean();
+        List<Object> trips = new ArrayList<Object>();
+        
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);
         configuration.setClassForTemplateLoading(SearchController.class, "/views");
         StringWriter writer = new StringWriter();
         Template template = configuration.getTemplate("advanced-search.ftl");
         Map<String, Object> map = new HashMap<String, Object>();
-        List<Object> trips = new ArrayList<Object>();
         map.put("results", trips);
         map.put("searchData", searchData);
         template.process(map, writer);
@@ -52,7 +64,7 @@ public class SearchController {
 
     @Post(value="/", consumes = MediaType.APPLICATION_FORM_URLENCODED)
     @View("advanced-search")
-    public HttpResponse<?> search(@Body SearchBean searchData)
+    public HttpResponse<?> searchPost(@Body SearchBean searchData)
             throws TemplateNotFoundException, MalformedTemplateNameException, ParseException,
             IOException, TemplateException {
         List<Object> trips = new ArrayList<Object>();

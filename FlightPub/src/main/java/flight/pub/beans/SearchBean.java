@@ -1,3 +1,17 @@
+/*
+ * SearchBean.java
+ * FlightPub Application
+ * 
+ * This file is part of FlightPub, a web-based flight booking application.
+ * Copyright (c) 2023 Yuquing Inc. All rights reserved.
+ * 
+ * SearchBean represents the search criteria for flight bookings within the FlightPub application.
+ * It stores information such as the location, destination, start date, end date and an optional
+ * trip type, flight class, maximum number of stops, and passenger count. SearchBean is used to
+ * manage and perform flight searches, allowing users to specify their travel preferences and 
+ * find suitable flights.
+ */
+
 package flight.pub.beans;
 
 import java.time.LocalDate;
