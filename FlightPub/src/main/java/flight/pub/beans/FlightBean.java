@@ -1,14 +1,25 @@
+/* 
+ * FlightBean.java
+ * FlightPub Application
+ * 
+ * This file is part of FlightPub, a web-based flight booking application.
+ * Copyright (c)  2023 Yuquing Inc. All rights reserved.
+ * 
+ * FlightBean holds data for a single flight within the FlightPub application.
+ * It provides essential information related to a specific flight, including
+ * title, airline brand, image, departure and arrival times, airports, and cost.
+ * The class includes methods for accessing and manipulating flight data,
+ * such as retrieving the duration of the flight and formatting the time.
+ */
+
 package flight.pub.beans;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import static java.time.temporal.ChronoUnit.MINUTES;
 
 import io.micronaut.context.annotation.Prototype;
 import io.micronaut.core.annotation.Introspected;
-
-import static java.time.temporal.ChronoUnit.MINUTES;
 
 @Prototype
 @Introspected

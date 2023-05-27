@@ -1,3 +1,13 @@
+/*
+ * styles.css
+ * FlightPub Application
+ * 
+ * This file is part of FlightPub, a web-based flight booking application.
+ * Copyright (c) 2023 Yuquing Inc. All rights reserved.
+ * 
+ * This CSS code provides the primary additional styling for the website
+*/
+
 /*------------------------------Login and Sign Up------------------------------ */
 .gradient-custom {
   /* fallback for old browsers */

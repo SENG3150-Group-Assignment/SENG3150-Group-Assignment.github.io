@@ -1,3 +1,12 @@
+<!-- 
+notification-item.ftl
+FlightPub Application
+Copyright (c)  2023 Yuquing Inc. All rights reserved.
+
+This component represents a passenger whom the user has booked a flight for. It is used on the
+booking page.
+-->
+
 <div class="card bg-medium text-dark" style="border-radius: 1rem">
     <div class="card-body p-4">
         <div class="row">

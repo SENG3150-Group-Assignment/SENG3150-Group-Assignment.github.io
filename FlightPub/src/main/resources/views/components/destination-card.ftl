@@ -1,3 +1,11 @@
+<!-- 
+destination-card.ftl
+FlightPub Application
+Copyright (c)  2023 Yuquing Inc. All rights reserved.
+
+This component generates a card component for displaying information about a destination.
+-->
+
 <div class="card bg-light text-dark">
     <div class="card-body text-center">
         <#if location.name == "Mystery Flight">

@@ -1,3 +1,11 @@
+<!-- 
+imports.ftl
+FlightPub Application
+Copyright (c)  2023 Yuquing Inc. All rights reserved.
+
+This component includes common imports for all pages.
+-->
+
 <link
     rel="stylesheet"
     type="text/css"

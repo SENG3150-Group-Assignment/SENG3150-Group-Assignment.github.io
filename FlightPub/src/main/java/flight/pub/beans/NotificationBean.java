@@ -1,3 +1,16 @@
+/*
+ * NotificationBean.java
+ * FlightPub Application
+ * 
+ * This file is part of FlightPub, a web-based flight booking application.
+ * Copyright (c) 2023 Yuquing Inc. All rights reserved.
+ * 
+ * NotificationBean represents a notification within the FlightPub application.
+ * It stores information about the notification's title, description, and time.
+ * NotificationBean is used to manage and display notifications related to flights,
+ * informing users about important updates, reminders, delays, cancellations, etc.
+ */
+
 package flight.pub.beans;
 
 import java.time.LocalDateTime;

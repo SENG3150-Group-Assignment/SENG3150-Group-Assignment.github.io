@@ -1,3 +1,13 @@
+<!-- 
+booking.ftl
+FlightPub Application
+Copyright (c)  2023 Yuquing Inc. All rights reserved.
+
+This file is the template for the booking page of the application. It is used to display the
+booking details of a flight and the passengers on the booking from which the user can pay for the
+booking.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 

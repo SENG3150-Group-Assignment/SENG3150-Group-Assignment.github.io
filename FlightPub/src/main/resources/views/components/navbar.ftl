@@ -1,3 +1,13 @@
+<!-- 
+navbar.ftl
+FlightPub Application
+Copyright (c)  2023 Yuquing Inc. All rights reserved.
+
+This component includes the navigation bar used on all pages of the application, containing links
+to the user's notifications, account, and logout.
+-->
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid px-3">
     <a class="navbar-brand" href="/home">

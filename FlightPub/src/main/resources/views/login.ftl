@@ -1,3 +1,11 @@
+<!-- 
+login.ftl
+FlightPub Application
+Copyright (c)  2023 Yuquing Inc. All rights reserved.
+
+Page that allows users to login to their account.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 

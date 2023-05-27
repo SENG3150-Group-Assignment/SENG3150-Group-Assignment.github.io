@@ -1,3 +1,15 @@
+/*
+ * FlightController.java
+ * FlightPub Application
+ * 
+ * This file is part of FlightPub, a web-based flight booking application.
+ * Copyright (c) 2023 Yuquing Inc. All rights reserved.
+ * 
+ * FlightController handles flight-related operations in the FlightPub application.
+ * It provides endpoints for flight search, flight details, booking, and exploration.
+ * The controller interacts with various bean classes to retrieve and display flight information.
+ */
+
 package flight.pub.controllers;
 
 import io.micronaut.http.annotation.Controller;

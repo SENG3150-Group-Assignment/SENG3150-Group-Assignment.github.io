@@ -1,3 +1,14 @@
+/*
+ * SearchController.java
+ * FlightPub Application
+ * 
+ * This file is part of FlightPub, a web-based flight booking application.
+ * Copyright (c) 2023 Yuquing Inc. All rights reserved.
+ * 
+ * SearchController handles operations related to flight search in the FlightPub application.
+ * It provides endpoints for performing flight searches, both via GET and POST methods.
+ */
+
 package flight.pub.controllers;
 
 import io.micronaut.http.annotation.Controller;

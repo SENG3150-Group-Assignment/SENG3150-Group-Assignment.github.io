@@ -1,3 +1,16 @@
+/*
+ * GroupBookingBean.java
+ * FlightPub Application
+ * 
+ * This file is part of FlightPub, a web-based flight booking application.
+ * Copyright (c) 2023 Yuquing Inc. All rights reserved.
+ * 
+ * GroupBookingBean represents a group booking within the FlightPub application.
+ * A group booking consists of the group's name, members, number of members, booking date
+ * and an image. GroupBookingBean is used to manage and display information related to group 
+ * bookings, allowing users to create, view, and modify group bookings for flights.
+ */
+
 package flight.pub.beans;
 
 import java.util.List;

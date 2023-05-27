@@ -1,3 +1,17 @@
+/*
+ * PassengerBean.java
+ * FlightPub Application
+ * 
+ * This file is part of FlightPub, a web-based flight booking application.
+ * Copyright (c) 2023 Yuquing Inc. All rights reserved.
+ * 
+ * PassengerBean represents a passenger within the FlightPub application. They may be the
+ * person making the booking, or a member of a group booking.
+ * It stores information about the passenger's number, name, gender, date of birth,
+ * and passport number. PassengerBean is used to manage and display passenger information
+ * for flight bookings, allowing users to specify passenger details when making bookings.
+ */
+
 package flight.pub.beans;
 
 import io.micronaut.context.annotation.Prototype;

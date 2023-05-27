@@ -1,3 +1,12 @@
+<!-- 
+mystery-flight.ftl
+FlightPub Application
+Copyright (c)  2023 Yuquing Inc. All rights reserved.
+
+This is the template for the notifications page. It displays all the notifications for the user.
+Notifications themselves are generated in the notification-item.ftl template.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 

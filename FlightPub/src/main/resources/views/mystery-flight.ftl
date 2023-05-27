@@ -1,3 +1,12 @@
+<!-- 
+mystery-flight.ftl
+FlightPub Application
+Copyright (c)  2023 Yuquing Inc. All rights reserved.
+
+Page similar to the flight page but for mystery flights. The destination of the flight is unknown
+to the user until they book the flight.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 
