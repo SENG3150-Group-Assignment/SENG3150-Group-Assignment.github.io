@@ -35,7 +35,7 @@ public class FlightController {
         return HttpResponse.ok().body(searchData);
     }
 
-    // If get is used
+    // For debugging purposes, show a page even when using get
     @Get("/")
     @View("flight")
     public HttpResponse<?> flightGet() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException,
@@ -44,7 +44,8 @@ public class FlightController {
         return flightPost();
     }
 
-    // Display the home page
+    // Display the flight page
+    // TODO Make the post take input to display the correct flight
     @Post("/")
     @View("flight")
     public HttpResponse<?> flightPost() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException,
@@ -72,7 +73,7 @@ public class FlightController {
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);
         configuration.setClassForTemplateLoading(FlightController.class, "/views");
         StringWriter writer = new StringWriter();
-        Template template = configuration.getTemplate("user.ftl");
+        Template template = configuration.getTemplate("flight.ftl");
         Map<String, Object> map = new HashMap<String, Object>();
         System.out.println(temp1.getDepartureTime());
         map.put("flights", Arrays.asList(temp1, temp2, temp3, temp4));
@@ -111,5 +112,24 @@ public class FlightController {
     @View("exploration")
     public HttpResponse<?> displayExplore() {
         return HttpResponse.ok();
+    }
+
+    // Mystery flight page
+    @Get("/mystery")
+    @View("mystery-flight")
+    public HttpResponse<?> displayMystery() throws TemplateNotFoundException,
+        MalformedTemplateNameException, ParseException, IOException, TemplateException {
+        FlightBean temp1 = new FlightBean();
+        temp1.temp1();
+
+        Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);
+        configuration.setClassForTemplateLoading(FlightController.class, "/views");
+        StringWriter writer = new StringWriter();
+        Template template = configuration.getTemplate("mystery-flight.ftl");
+        Map<String, Object> map = new HashMap<String, Object>();
+        System.out.println(temp1.getDepartureTime());
+        map.put("flight", temp1);
+        template.process(map, writer);
+        return HttpResponse.ok().body(map);
     }
 }

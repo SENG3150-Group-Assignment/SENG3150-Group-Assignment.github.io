@@ -101,7 +101,7 @@
                                     <h5 class="card-title">Book Now</h5>
                                     <hr />
                                     <p class="fw-bold mb-1">Price</p>
-                                    <p class="h2 mb-4">$800</p>
+                                    <p class="h2 mb-4">$${flight.cost}</p>
                                     <button class="btn btn-success btn-lg mb-3">
                                         Add to Watchlist
                                     </button>
