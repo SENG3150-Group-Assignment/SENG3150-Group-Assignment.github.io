@@ -21,6 +21,7 @@ public class FlightBean {
     private Float cost;
 
     public FlightBean() {
+
     }
 
     public FlightBean(String title, String airlineBrand, String image, LocalDateTime departureTime,

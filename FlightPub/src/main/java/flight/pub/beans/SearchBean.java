@@ -27,7 +27,14 @@ public class SearchBean {
     private int passengerCount;
 
     public SearchBean() {
-
+        location = "";
+        destination = "";
+        startDate = LocalDate.now();
+        endDate = LocalDate.now();
+        tripType = "";
+        flightClass = "";
+        maxStops = 99;
+        passengerCount = 1;
     }
 
     public String getLocation() {

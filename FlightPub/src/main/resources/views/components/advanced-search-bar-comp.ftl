@@ -90,7 +90,7 @@
 
         <div class="col-md-2">
           <select class="form-select" aria-label="Maximum Stopovers" id="maxStops" name="maxStops">
-            <option selected>Maximum Stopovers</option>
+            <option selected value="99">Maximum Stopovers</option>
             <option value="0"
             <#if (searchData.maxStops!99) == 0>
               selected

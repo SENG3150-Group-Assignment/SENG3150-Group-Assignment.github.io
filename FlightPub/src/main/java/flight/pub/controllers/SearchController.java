@@ -2,7 +2,10 @@ package flight.pub.controllers;
 
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
+import io.micronaut.http.annotation.Post;
 import io.micronaut.http.HttpResponse;
+import io.micronaut.http.MediaType;
+import io.micronaut.http.annotation.Body;
 
 import io.micronaut.views.View;
 import freemarker.core.ParseException;
@@ -28,12 +31,34 @@ import flight.pub.beans.SearchBean;
 
 @Controller("/search")
 public class SearchController {
+    @Get("/")
+    @View("advanced-search")
+    public HttpResponse<?> index() 
+            throws TemplateNotFoundException, MalformedTemplateNameException, ParseException,
+            IOException, TemplateException{
+        // If a get requesti is used send an empty search bean to the view and show no results
+        SearchBean searchData = new SearchBean();
+        Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);
+        configuration.setClassForTemplateLoading(SearchController.class, "/views");
+        StringWriter writer = new StringWriter();
+        Template template = configuration.getTemplate("advanced-search.ftl");
+        Map<String, Object> map = new HashMap<String, Object>();
+        List<Object> trips = new ArrayList<Object>();
+        map.put("results", trips);
+        map.put("searchData", searchData);
+        template.process(map, writer);
+        return HttpResponse.ok().body(map);
+    }
+
     @Post(value="/", consumes = MediaType.APPLICATION_FORM_URLENCODED)
     @View("advanced-search")
     public HttpResponse<?> search(@Body SearchBean searchData)
             throws TemplateNotFoundException, MalformedTemplateNameException, ParseException,
             IOException, TemplateException {
         List<Object> trips = new ArrayList<Object>();
+
+        // TEMPORARY //
+        // A search algorithm should be run to find flights, instead of hardcoding them
 
         // Create trip 1
         FlightBean f1_1 = new FlightBean();
