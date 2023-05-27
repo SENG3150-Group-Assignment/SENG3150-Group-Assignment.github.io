@@ -28,17 +28,26 @@ import flight.pub.beans.SearchBean;
 @Controller("/flight")
 public class FlightController {
 
-    // Handle the search form submission
+    // Handle the search form submission DEBUGGING ONLY
     @Post(value = "/blank", consumes = MediaType.APPLICATION_FORM_URLENCODED) // TODO get form to return json
     @View("display")
     public HttpResponse<?> processSearch(@Body SearchBean searchData) {
         return HttpResponse.ok().body(searchData);
     }
 
+    // If get is used
+    @Get("/")
+    @View("flight")
+    public HttpResponse<?> flightGet() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException,
+            IOException, TemplateException {
+        
+        return flightPost();
+    }
+
     // Display the home page
     @Post("/")
     @View("flight")
-    public HttpResponse<?> index() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException,
+    public HttpResponse<?> flightPost() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException,
             IOException, TemplateException {
 
         // Dummy data
@@ -46,10 +55,10 @@ public class FlightController {
         FlightBean temp2 = new FlightBean();
         FlightBean temp3 = new FlightBean();
         FlightBean temp4 = new FlightBean();
-        temp1.temp1();
-        temp2.temp2();
-        temp3.temp3();
-        temp4.temp4();
+        temp1.f2_1();
+        temp2.f2_2();
+        temp3.f2_3();
+        temp4.f2_4();
 
         GroupBookingBean groupTemp1 = new GroupBookingBean();
         GroupBookingBean groupTemp2 = new GroupBookingBean();
@@ -65,16 +74,18 @@ public class FlightController {
         StringWriter writer = new StringWriter();
         Template template = configuration.getTemplate("user.ftl");
         Map<String, Object> map = new HashMap<String, Object>();
+        System.out.println(temp1.getDepartureTime());
         map.put("flights", Arrays.asList(temp1, temp2, temp3, temp4));
         map.put("groups", Arrays.asList(groupTemp1, groupTemp2, groupTemp3, groupTemp4));
+        map.put("flight", temp1);
         template.process(map, writer);
         return HttpResponse.ok().body(map);
     }
 
-    // Display the booking wizard page
+    // Display the booking details page
     @Get("/booking")
     @View("booking")
-    public HttpResponse<?> displayWizard() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException, IOException, TemplateException {
+    public HttpResponse<?> displayBooking() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException, IOException, TemplateException {
         FlightBean temp1 = new FlightBean();
         temp1.temp1();
 

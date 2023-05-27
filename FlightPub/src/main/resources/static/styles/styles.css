@@ -94,3 +94,7 @@ h1 {
 .destination h4 {
   font-weight: bold;
 }
+
+.bg-medium {
+  background-color: #0b3b4e;
+}

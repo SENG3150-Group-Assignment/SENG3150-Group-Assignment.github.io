@@ -12,7 +12,7 @@
         <#include "components/navbar.ftl">
             <div class="green-background px-5" id="main-body">
                 <div class="container py-4">
-                    <a href="advanced_search.html" class="btn btn-secondary mb-3"><i class="bi bi-arrow-left me-2"></i>Back to search results</a>
+                    <a onclick="history.back()" class="btn btn-secondary mb-3"><i class="bi bi-arrow-left me-2"></i>Back to search results</a>
                     <div class="row">
                         <!-- Flight info column -->
                         <div class="col-lg-8">
@@ -36,7 +36,7 @@
                                         <div class="col-sm-4">
                                             <p class="fw-bold mb-1">Departure Date & Time</p>
                                             <p class="mb-0">
-                                                ${flight.departureDate} ${flight.departureTime}
+                                                ${flight.departureTimeFormatted}
                                             </p>
                                         </div>
                                     </div>
@@ -45,13 +45,13 @@
                                         <div class="col-sm-4">
                                             <p class="fw-bold mb-1">From</p>
                                             <p class="mb-0">
-                                                ${flight.departure}
+                                                ${flight.departure} (${flight.departureAirport})
                                             </p>
                                         </div>
                                         <div class="col-sm-4">
                                             <p class="fw-bold mb-1">To</p>
                                             <p class="mb-0">
-                                                ${flight.arrival}
+                                                ${flight.arrival} (${flight.arrivalAirport})
                                             </p>
                                         </div>
                                         <div class="col-sm-4">

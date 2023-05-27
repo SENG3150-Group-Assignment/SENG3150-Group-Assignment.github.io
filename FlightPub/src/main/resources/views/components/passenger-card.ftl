@@ -1,4 +1,4 @@
-<div class="card bg-light text-dark" style="border-radius: 1rem">
+<div class="card bg-medium text-dark" style="border-radius: 1rem">
     <div class="card-body p-4">
         <div class="row">
             <h5><strong>Passenger ${passenger.number}

@@ -6,6 +6,8 @@ import java.time.format.DateTimeFormatter;
 import io.micronaut.context.annotation.Prototype;
 import io.micronaut.core.annotation.Introspected;
 
+import static java.time.temporal.ChronoUnit.MINUTES;
+
 @Prototype
 @Introspected
 public class FlightBean {
@@ -134,6 +136,26 @@ public class FlightBean {
 
     public void setCost(Float cost) {
         this.cost = cost;
+    }
+
+    public String getDuration(){
+        long durationMinutes = MINUTES.between(
+            getDepartureTime(), 
+            getArrivalTime());
+
+        long hours   = durationMinutes / 60;
+        long minutes = durationMinutes % 60;
+        return "" + hours + " hr " + minutes + " min";
+    }
+
+    public String getDepartureTimeFormatted(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm");
+        return getDepartureTime().format(formatter);
+    }
+
+    public String getArrivalTimeFormatted(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm");
+        return getArrivalTime().format(formatter);
     }
 
     public String toJson(){

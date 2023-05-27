@@ -5,7 +5,7 @@
             ${notification.description}
         </p>
         <p class="card-text">
-            <small class="text-muted">${notification.time}</small>
+            <small class="text-muted">${notification.timeFormatted}</small>
         </p>
     </div>
 </div>
