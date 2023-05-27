@@ -58,9 +58,10 @@ public class SearchController {
             IOException, TemplateException {
         List<Object> trips = new ArrayList<Object>();
 
-        // TEMPORARY //
         // A search algorithm should be run to find flights, instead of hardcoding them
-
+        searchData.searchFlights();
+        
+        // TEMPORARY //
         // Create trip 1
         FlightBean f1_1 = new FlightBean();
         FlightBean f1_2 = new FlightBean();
@@ -104,6 +105,7 @@ public class SearchController {
     }
 
     private HashMap<String, Object> MakeTrip(List<FlightBean> flights){
+        // Will be replaced with a trip object TODO
         HashMap<String, Object> trip = new HashMap<String, Object>();
         trip.put("flights", flights);
         float totalPrice = 0;
@@ -129,7 +131,8 @@ public class SearchController {
         LocalDateTime departureTime = flights.get(0).getDepartureTime();
         String departureDate = departureTime.getDayOfMonth() + " " + departureTime.getMonth() + " " + departureTime.getYear();
         trip.put("departureDate", departureDate);
-
+        trip.put("id", "" + trip.hashCode());
+        
         return trip;
     }
 }

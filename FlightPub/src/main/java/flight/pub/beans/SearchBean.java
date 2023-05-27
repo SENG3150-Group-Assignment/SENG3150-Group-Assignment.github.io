@@ -1,7 +1,7 @@
 package flight.pub.beans;
 
 import java.time.LocalDate;
-
+import java.util.ArrayList;
 
 import io.micronaut.core.annotation.Introspected;
 import jakarta.inject.Singleton;
@@ -102,6 +102,13 @@ public class SearchBean {
 
     public void setPassengerCount(int passengerCount) {
         this.passengerCount = passengerCount;
+    }
+
+    // Search for flights based on the search data
+    public ArrayList<FlightBean> searchFlights(){
+        // TODO: implement
+        // See sequence diagram in design document for implementation details
+        return new ArrayList<FlightBean>();
     }
 
 }

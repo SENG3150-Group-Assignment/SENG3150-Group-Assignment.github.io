@@ -51,11 +51,6 @@
                     </#list>
                 </tbody>
               </table>
-              <#--  Flight Value hidden form  -->
-              <form style="display: none" action="/flight" method="POST" id="form">
-                <input type="hidden" id="var1" name="var1" value="1"/>
-                <input type="hidden" id="var2" name="var2" value="2"/>
-              </form>
             </div>
           </div>
         </div>

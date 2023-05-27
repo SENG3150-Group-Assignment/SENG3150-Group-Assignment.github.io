@@ -1,4 +1,5 @@
-<tr onclick="" odd>
+
+<tr onclick='window.location.href = "/flight/";' odd>
     <td>${trip.airlineBrand}</td>
     <td>${trip.departureDate}</td>
     <td class="utc-time">${trip.departureTime}</td>

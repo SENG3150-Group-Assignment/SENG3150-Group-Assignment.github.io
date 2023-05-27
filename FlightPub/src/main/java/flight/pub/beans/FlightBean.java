@@ -2,6 +2,8 @@ package flight.pub.beans;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import static java.time.temporal.ChronoUnit.MINUTES;
 
 import io.micronaut.context.annotation.Prototype;
 import io.micronaut.core.annotation.Introspected;
@@ -138,6 +140,7 @@ public class FlightBean {
         this.cost = cost;
     }
 
+    // Get the duration of the flight in hours and minutes and as a string
     public String getDuration(){
         long durationMinutes = MINUTES.between(
             getDepartureTime(), 
@@ -158,6 +161,15 @@ public class FlightBean {
         return getArrivalTime().format(formatter);
     }
 
+    // Get's the details of a flight by it's ID from the database
+    public static FlightBean getFlightById(String id){
+        //TODO: implement
+        // TEMPORARY
+        FlightBean b = new FlightBean();
+        b.f1_1();
+        return b;
+    }
+
     public String toJson(){
         DateTimeFormatter isoFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
 
@@ -174,6 +186,8 @@ public class FlightBean {
             "\"cost\":\"" + cost + "\"" +
         "}";
     }
+
+    /*-------------------- // TODO Remove DEBUG --------------------*/
 
     public void temp1() {
         title = "JQ218";
