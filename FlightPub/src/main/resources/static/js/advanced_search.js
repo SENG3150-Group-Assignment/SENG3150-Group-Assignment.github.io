@@ -109,3 +109,9 @@ function findLatestEnd(trips){
     }
     return latest;
 }
+
+// Function called when the user selects a flight
+document.getElementById("flight").onclick = function () {
+    // Go to the flight page
+    window.location.href = "/flight/";
+}
