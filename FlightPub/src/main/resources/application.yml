@@ -18,3 +18,12 @@ netty:
   default:
     allocator:
       max-order: 3
+
+datasources:
+  default:
+    dialect: SQL_SERVER
+    db-type: mssql
+    url: jdbc:sqlserver://localhost:1433;databaseName=flight_pub
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    username: rubbish
+    password: trash

@@ -18,12 +18,25 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import static java.time.temporal.ChronoUnit.MINUTES;
 
+
 import io.micronaut.context.annotation.Prototype;
 import io.micronaut.core.annotation.Introspected;
 
+import io.micronaut.data.annotation.AutoPopulated;
+import io.micronaut.data.annotation.GeneratedValue;
+import io.micronaut.data.annotation.Id;
+import io.micronaut.data.annotation.MappedEntity;
+import io.micronaut.serde.annotation.Serdeable;
+
+
 @Prototype
 @Introspected
+@Serdeable
+@MappedEntity
 public class FlightBean {
+    @Id
+    @GeneratedValue(GeneratedValue.Type.AUTO)
+    private Long id;
     private String title;
     private String airlineBrand;
     private String image;
@@ -196,6 +209,11 @@ public class FlightBean {
             "\"arrivalAirport\":\"" + arrivalAirport + "\"," +
             "\"cost\":\"" + cost + "\"" +
         "}";
+    }
+
+    @Override
+    public String toString(){
+        return "FlightBean" + toJson();
     }
 
     /*-------------------- // TODO Remove DEBUG --------------------*/
