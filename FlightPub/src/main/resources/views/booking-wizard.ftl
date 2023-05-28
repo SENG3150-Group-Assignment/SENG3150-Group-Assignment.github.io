@@ -29,18 +29,32 @@ process step-by-step. It is not fully implemented in the current version.
           Where are you flying from?
           <div class="form-floating mb-3">
             <input type="text" class="form-control" id="floatingInput" placeholder="">
-            <label for="floatingInput">Destination</label>
+            <label for="floatingInput">Origin</label>
           </div>
         </div>
         <!-- Step 2 -->
         <div id="step2" class="step">
-          <!-- Step 2 form fields -->
+          Where are you flying to?
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="">
+            <label for="floatingInput">Destination</label>
+          </div>
         </div>
         <!-- Step 3 -->
         <div id="step3" class="step">
-          <!-- Step 3 form fields -->
+          What date are you flying?
+          <div class="form-outline col-md-3 form-white px-2">
+            <input type="date" id="start-date" name="startDate" class="form-control form-control-lg"
+              placeholder="Start Date" />
+          </div>
         </div>
-        <!-- Step buttons -->
+        <div id="step4" class="step">
+          What date are you returning?
+          <div class="form-outline col-md-3 form-white px-2">
+            <input type="date" id="End Date" name="endDate" class="form-control form-control-lg"
+              placeholder="End Date" />
+          </div>
+        </div>
         <div class="step-buttons">
           <button id="prevBtn" class="btn btn-primary" type="button">Previous</button>
           <button id="nextBtn" class="btn btn-primary" type="button">Next</button>
@@ -48,7 +62,7 @@ process step-by-step. It is not fully implemented in the current version.
         </div>
       </form>
     </div>
-
+    <!-- Step buttons -->
     <script src="js/booking_wizard.js"></script>
 </body>
 
