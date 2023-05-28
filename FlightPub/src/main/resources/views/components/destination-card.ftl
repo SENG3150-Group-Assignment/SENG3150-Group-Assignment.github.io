@@ -8,7 +8,7 @@
             <h4>
                 ${location.name}
             </h4>
-            ${location.description}
+            ${location.shortDescription}
         </a>
     </div>
 </div>

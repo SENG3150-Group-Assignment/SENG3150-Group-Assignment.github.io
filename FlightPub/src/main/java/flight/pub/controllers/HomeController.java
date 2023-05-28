@@ -74,8 +74,21 @@ public class HomeController {
     }
     @Get("/destination")
     @View("destination")
-    public HttpResponse<?> destination() {
-        return HttpResponse.ok();
+    public HttpResponse<?> destination() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException, IOException, TemplateException {
+
+        DestinationBean nepal = new DestinationBean();
+        nepal.nepal();
+
+
+        Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);
+        configuration.setClassForTemplateLoading(HomeController.class, "/views");
+        StringWriter writer = new StringWriter();
+        Template template = configuration.getTemplate("destination.ftl");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("destination", nepal);
+        template.process(map, writer);
+        return HttpResponse.ok().body(map);
+     
     }
     
 }
