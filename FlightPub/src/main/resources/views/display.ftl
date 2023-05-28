@@ -12,6 +12,8 @@ Temporary debug page
     <title>debug</title>
   </head>
   <body>
-    ${debug}
+    <#list debug as d>
+      <p>${d}</p>
+    </#list>
   </body>
 </html>
