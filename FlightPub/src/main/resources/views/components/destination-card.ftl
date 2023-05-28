@@ -20,7 +20,7 @@ This component generates a card component for displaying information about a des
             <h4>
                 ${location.name}
             </h4>
-            ${location.description}
+            ${location.shortDescription}
         </a>
     </div>
 </div>
