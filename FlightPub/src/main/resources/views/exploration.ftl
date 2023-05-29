@@ -8,20 +8,6 @@ holidays based specific tags such as temperature, terrain, weather and attractio
 -->
 
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Search Data</title>
-  </head>
-  <body>
-    <h1>Search Data</h1>
-    <p>Location: ${location}</p>
-    <p>Destination: ${destination}</p>
-    <p>Start Date: ${startDate}</p>
-    <p>End Date: ${endDate}</p>
-  </body>
-</html>
-
-<!DOCTYPE html>
 <html lang="en">
 
 <head>

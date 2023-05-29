@@ -14,20 +14,76 @@ process step-by-step. It is not fully implemented in the current version.
   <meta charset="UTF-8" />
   <title>Booking Wizard</title>
   <#include "components/imports.ftl">
+
+    <link rel="stylesheet" type="text/css" href="\styles\booking-wizard.css" />
 </head>
 
 <body>
   <#include "components/navbar.ftl">
-  <!------------------------------ End Navbar ------------------------------>
-  <!------------------------------ Main Body ------------------------------>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6 text-center">
-        <h1 class="display-4">Page Under Construction</h1>
-        <p>Please check back later for updates.</p>
-      </div>
+    <!------------------------------ End Navbar ------------------------------>
+    <!------------------------------ Main Body ------------------------------>
+    <div class="form-container">
+      <form id="multiStepForm" class="form">
+        <!-- Step 1 -->
+        <div id="step1" class="step">
+          Where are you flying from?
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="">
+            <label for="floatingInput">Origin</label>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div id="step2" class="step">
+          Where are you flying to?
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="">
+            <label for="floatingInput">Destination</label>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div id="step3" class="step">
+          What date are you flying?
+          <div class="form-outline col-md-3 form-white px-2">
+            <input type="date" id="start-date" name="startDate" class="form-control form-control-lg"
+              placeholder="Start Date" />
+          </div>
+        </div>
+        <div id="step4" class="step">
+          What date are you returning?
+          <div class="form-outline col-md-3 form-white px-2">
+            <input type="date" id="End Date" name="endDate" class="form-control form-control-lg"
+              placeholder="End Date" />
+          </div>
+        </div>
+        <div class="step-buttons">
+          <button id="prevBtn" class="btn btn-primary" type="button">Previous</button>
+          <button id="nextBtn" class="btn btn-primary" type="button">Next</button>
+          <button id="submitBtn" class="btn btn-success" type="submit">Submit</button>
+        </div>
+      </form>
     </div>
-  </div>
+    <!-- Step buttons -->
+    <script type="text/javascript">
+      document.getElementById("nextBtn").addEventListener("click", function () {
+        const currentStep = document.querySelector(".step:visible");
+        const nextStep = currentStep.nextElementSibling;
+        currentStep.style.display = "none";
+        nextStep.style.display = "block";
+      });
+
+      document.getElementById("prevBtn").addEventListener("click", function () {
+        const currentStep = document.querySelector(".step:visible");
+        const prevStep = currentStep.previousElementSibling;
+        currentStep.style.display = "none";
+        prevStep.style.display = "block";
+      });
+
+      document.getElementById("multiStepForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form submission
+        // Handle form submission or validation
+      });
+    </script>
+    <script src="js/booking_wizard.js"></script>
 </body>
 
 </html>
