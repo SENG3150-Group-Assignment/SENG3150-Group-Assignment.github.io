@@ -9,7 +9,6 @@
  * It represents a specific location or event for which a user can search for flights.
  */
 
-
 package flight.pub.beans;
 
 import io.micronaut.context.annotation.Prototype;

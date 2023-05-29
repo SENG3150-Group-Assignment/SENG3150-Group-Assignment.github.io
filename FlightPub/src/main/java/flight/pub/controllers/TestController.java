@@ -31,13 +31,14 @@ import freemarker.template.TemplateException;
 import freemarker.template.TemplateNotFoundException;
 
 import flight.pub.beans.Country;
+import flight.pub.repository.CountryRepository;
 
 @ExecuteOn(TaskExecutors.IO)
 @Controller("/test")
 public class TestController {
-    protected final CountryRepositoryTest countryRepository;
+    protected final CountryRepository countryRepository;
     
-    public TestController(CountryRepositoryTest countryRepository) { 
+    public TestController(CountryRepository countryRepository) { 
         this.countryRepository = countryRepository;
     }
 
@@ -58,12 +59,12 @@ public class TestController {
     public HttpResponse<?> list(@Valid Pageable pageable) throws TemplateNotFoundException, 
     MalformedTemplateNameException, ParseException, IOException, TemplateException { 
         List<Country> p = countryRepository.findAll(pageable).getContent();
-        System.out.println("There are " + p.size() + " countries in the database");
-        if (p.size() > 0) {
-            System.out.println("The first country is " + p.get(0).getCountryName());
-        } else {
-            System.out.println("There are no countries in the database");
-        }
+        // System.out.println("There are " + p.size() + " countries in the database");
+        // if (p.size() > 0) {
+        //     System.out.println("The first country is " + p.get(0).getCountryName());
+        // } else {
+        //     System.out.println("There are no countries in the database");
+        // }
 
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);
         configuration.setClassForTemplateLoading(HomeController.class, "/views");

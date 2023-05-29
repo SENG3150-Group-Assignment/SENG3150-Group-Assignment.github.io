@@ -1,3 +1,14 @@
+/*
+ * Country.java
+ * FlightPub Application
+ * 
+ * This file is part of FlightPub, a web-based flight booking application.
+ * Copyright (c) 2023 Yuquing Inc. All rights reserved.
+ * 
+ * DestinationBean holds data for a specific country within the flightpub application
+ */
+
+
 package flight.pub.beans;
 
 import io.micronaut.context.annotation.Prototype;
@@ -13,21 +24,10 @@ import io.micronaut.serde.annotation.Serdeable;
 @Serdeable
 @MappedEntity
 public class Country {
-    @Id
-    @GeneratedValue(GeneratedValue.Type.AUTO)
-    private Long id;
-
     @NonNull
+    @Id
     private String countryCode;
     private String countryName;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getCountryCode() {
         return countryCode;
@@ -47,25 +47,8 @@ public class Country {
     @Override
     public String toString() {
         return "Country{" +
-                "id=" + id +
                 ", countryCode='" + countryCode + '\'' +
                 ", description='" + countryName + '\'' +
                 '}';
-    }
-
-    /*-------------------- // TODO Remove DEBUG --------------------*/
-    public void nepal() {
-        setCountryCode("Nepal");
-        setCountryName("Mountainous & Spiritual");
-    }
-
-    public void ny() {
-        setCountryCode("New York City");
-        setCountryName("Cosmopolitan & Diverse");
-    }
-
-    public void mystery() {
-        setCountryCode("Mystery Flight");
-        setCountryName("Excitement & Adventure");
     }
 }
