@@ -31,15 +31,20 @@ import freemarker.template.TemplateException;
 import freemarker.template.TemplateNotFoundException;
 
 import flight.pub.beans.Country;
+import flight.pub.beans.City;
 import flight.pub.repository.CountryRepository;
+import flight.pub.repository.CityRepository;
+
 
 @ExecuteOn(TaskExecutors.IO)
 @Controller("/test")
 public class TestController {
     protected final CountryRepository countryRepository;
+    protected final CityRepository cityRepository;
     
-    public TestController(CountryRepository countryRepository) { 
+    public TestController(CountryRepository countryRepository, CityRepository cityRepository) {
         this.countryRepository = countryRepository;
+        this.cityRepository = cityRepository; 
     }
 
     @Get("/display")
@@ -59,6 +64,7 @@ public class TestController {
     public HttpResponse<?> list(@Valid Pageable pageable) throws TemplateNotFoundException, 
     MalformedTemplateNameException, ParseException, IOException, TemplateException { 
         List<Country> p = countryRepository.findAll(pageable).getContent();
+        List<City> q = cityRepository.findAll(pageable).getContent();
         // System.out.println("There are " + p.size() + " countries in the database");
         // if (p.size() > 0) {
         //     System.out.println("The first country is " + p.get(0).getCountryName());
@@ -71,7 +77,7 @@ public class TestController {
         StringWriter writer = new StringWriter();
         Template template = configuration.getTemplate("display.ftl");
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("debug", p);
+        map.put("debug", q);
         template.process(map, writer);
         return HttpResponse.ok().body(map);
     }

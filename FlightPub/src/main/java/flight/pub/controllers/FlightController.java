@@ -32,10 +32,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import flight.pub.beans.FlightBean;
+import flight.pub.beans.Flight;
 import flight.pub.beans.GroupBookingBean;
 import flight.pub.beans.PassengerBean;
-import flight.pub.beans.SearchBean;
+import flight.pub.beans.Search;
 
 @Controller("/flight")
 public class FlightController {
@@ -43,7 +43,7 @@ public class FlightController {
     // Handle the search form submission DEBUGGING ONLY
     @Post(value = "/blank", consumes = MediaType.APPLICATION_FORM_URLENCODED) // TODO get form to return json
     @View("display")
-    public HttpResponse<?> processSearch(@Body SearchBean searchData) {
+    public HttpResponse<?> processSearch(@Body Search searchData) {
         return HttpResponse.ok().body(searchData);
     }
 
@@ -64,10 +64,10 @@ public class FlightController {
             IOException, TemplateException {
 
         // Dummy data
-        FlightBean temp1 = new FlightBean();
-        FlightBean temp2 = new FlightBean();
-        FlightBean temp3 = new FlightBean();
-        FlightBean temp4 = new FlightBean();
+        Flight temp1 = new Flight();
+        Flight temp2 = new Flight();
+        Flight temp3 = new Flight();
+        Flight temp4 = new Flight();
         temp1.f2_1();
         temp2.f2_2();
         temp3.f2_3();
@@ -99,7 +99,7 @@ public class FlightController {
     @Get("/booking")
     @View("booking")
     public HttpResponse<?> displayBooking() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException, IOException, TemplateException {
-        FlightBean temp1 = new FlightBean();
+        Flight temp1 = new Flight();
         temp1.temp1();
 
         PassengerBean pTemp1 = new PassengerBean();
@@ -131,7 +131,7 @@ public class FlightController {
     @View("mystery-flight")
     public HttpResponse<?> displayMystery() throws TemplateNotFoundException,
         MalformedTemplateNameException, ParseException, IOException, TemplateException {
-        FlightBean temp1 = new FlightBean();
+        Flight temp1 = new Flight();
         temp1.temp1();
 
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);

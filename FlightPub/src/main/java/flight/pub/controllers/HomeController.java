@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import flight.pub.beans.DestinationBean;
-import flight.pub.beans.SearchBean;
+import flight.pub.beans.Search;
 
 @Controller("/home")
 public class HomeController {
