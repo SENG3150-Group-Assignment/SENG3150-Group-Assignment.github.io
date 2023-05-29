@@ -1,18 +1,22 @@
-document.getElementById("nextBtn").addEventListener("click", function () {
-    const currentStep = document.querySelector(".step:visible");
-    const nextStep = currentStep.nextElementSibling;
-    currentStep.style.display = "none";
-    nextStep.style.display = "block";
-});
+var currentPage = 1;
+var totalPages = 4;
 
-document.getElementById("prevBtn").addEventListener("click", function () {
-    const currentStep = document.querySelector(".step:visible");
-    const prevStep = currentStep.previousElementSibling;
-    currentStep.style.display = "none";
-    prevStep.style.display = "block";
-});
+function changePage(page) {
+    if (page >= 1 && page <= totalPages) {
+        document.getElementById("page" + currentPage).style.display = "none";
+        document.getElementById("page" + page).style.display = "block";
+        currentPage = page;
+    }
+}
 
-document.getElementById("multiStepForm").addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent form submission
-    // Handle form submission or validation
-});
+function previousPage() {
+    if (currentPage > 1) {
+        changePage(currentPage - 1);
+    }
+}
+
+function nextPage() {
+    if (currentPage < totalPages) {
+        changePage(currentPage + 1);
+    }
+}
