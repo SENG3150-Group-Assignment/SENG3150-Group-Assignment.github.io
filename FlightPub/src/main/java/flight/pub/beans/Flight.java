@@ -16,8 +16,8 @@ package flight.pub.beans;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import static java.time.temporal.ChronoUnit.MINUTES;
 
+import static java.time.temporal.ChronoUnit.MINUTES;
 
 import io.micronaut.context.annotation.Prototype;
 import io.micronaut.core.annotation.Introspected;
@@ -28,7 +28,9 @@ import io.micronaut.data.annotation.Id;
 import io.micronaut.data.annotation.MappedEntity;
 import io.micronaut.data.annotation.Transient;
 import io.micronaut.serde.annotation.Serdeable;
+import io.micronaut.data.annotation.Relation;
 import jakarta.inject.Inject;
+
 import flight.pub.repository.CityRepository;
 
 @Prototype
@@ -47,7 +49,6 @@ public class Flight {
     private LocalDateTime departureTime;
     private LocalDateTime arrivalTime;
 
-    @Inject
     public Flight() {
     }
 
@@ -98,7 +99,7 @@ public class Flight {
     @Transient
     public String getDepartureAirport() {
         // get from city table
-        return "";
+        return "E";
     }
 
     @Transient
@@ -183,8 +184,8 @@ public class Flight {
             "\"arrivalTime\":\"" + arrivalTime.format(isoFormat) + "\"," +
             "\"arrival\":\"" + destination + "\"," +
             "\"arrivalAirport\":\"" + getArrivalAirport() + "\"," +
-            "\"cost\":\"" + cost + "\"" +
-            "\"flightNum\":\"" + flightNum + "\"" +
+            "\"cost\":\"" + cost + "\"," +
+            "\"flightNum\":\"" + flightNum + "\"," +
         "}";
     }
 

@@ -18,6 +18,9 @@ import io.micronaut.data.annotation.Id;
 import io.micronaut.data.annotation.MappedEntity;
 import io.micronaut.serde.annotation.Serdeable;
 
+import io.micronaut.data.annotation.Relation;
+import java.util.List;
+
 @Prototype
 @Introspected
 @Serdeable
@@ -32,7 +35,7 @@ public class City {
     private String countryCode;
     private String temperatureTag;
     private String description;
-    
+
     public String getCityCode() {
         return cityCode;
     }

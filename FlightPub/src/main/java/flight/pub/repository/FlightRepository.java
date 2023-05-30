@@ -8,16 +8,17 @@
  * Handles CRUD operations for the Flight entity.
  */
 
- package flight.pub.repository;
+package flight.pub.repository;
 
- import flight.pub.beans.Flight;
- 
- import io.micronaut.core.annotation.NonNull;
- import io.micronaut.data.annotation.Id;
- import io.micronaut.data.exceptions.DataAccessException;
- import io.micronaut.data.jdbc.annotation.JdbcRepository;
- import io.micronaut.data.model.query.builder.sql.Dialect;
- import io.micronaut.data.repository.PageableRepository;
+import flight.pub.beans.Flight;
+
+import io.micronaut.core.annotation.NonNull;
+import io.micronaut.data.annotation.Id;
+import io.micronaut.data.exceptions.DataAccessException;
+import io.micronaut.data.jdbc.annotation.JdbcRepository;
+import io.micronaut.data.model.query.builder.sql.Dialect;
+import io.micronaut.data.repository.PageableRepository;
+import io.micronaut.data.annotation.Join;
 
 import java.time.LocalDateTime;
 
