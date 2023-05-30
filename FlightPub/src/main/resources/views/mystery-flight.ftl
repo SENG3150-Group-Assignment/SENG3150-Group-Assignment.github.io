@@ -85,16 +85,10 @@ to the user until they book the flight.
                                     <h5 class="card-title">Book Now</h5>
                                     <hr />
                                     <p class="fw-bold mb-1">Price</p>
-                                    <p class="h2 mb-4">$${flight.cost}</p>
-                                    <button class="btn btn-success btn-lg mb-3">
-                                        Add to Watchlist
-                                    </button>
-                                    <button class="btn btn-primary btn-lg mb-3">Book Now</button>
-                                    <a
-                                        class="btn btn-primary btn-lg mb-3"
-                                        href="group-booking.html">
-                                        Book as Group
-                                    </a>
+                                    <p class="h2 mb-4">${flight.cost}</p>
+                                    <a class="btn btn-success btn-lg mb-3" href="/navbar/user#watchlist">Add to Watchlist</a>
+                                    <a class="btn btn-primary btn-lg mb-3" href="/search">Book Now</a>
+                                    <a class="btn btn-primary btn-lg mb-3" href="/navbar/user#group_bookings">Book as Group</a>
                                 </div>
                             </div>
                         </div>
