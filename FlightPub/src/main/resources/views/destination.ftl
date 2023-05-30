@@ -48,5 +48,4 @@ and a description for that destination and allows the user to search for fligths
                 </div>
             </div>
 </body>
-
 </html>

@@ -13,7 +13,7 @@ in the user page to show the watchlist, previous flights and upcoming flights.
     <div class="card-body text-center p-3">
         <div class="row">
             <img
-                src="${flight.image}"
+                src="/images/nepal.jpg"
                 class="rounded p-0 img-fluid" />
         </div>
         <div class="row text-center">
