@@ -21,11 +21,12 @@ import static java.time.temporal.ChronoUnit.MINUTES;
 
 import io.micronaut.context.annotation.Prototype;
 import io.micronaut.core.annotation.Introspected;
-
+import io.micronaut.core.annotation.NonNull;
 import io.micronaut.data.annotation.AutoPopulated;
 import io.micronaut.data.annotation.GeneratedValue;
 import io.micronaut.data.annotation.Id;
 import io.micronaut.data.annotation.MappedEntity;
+import io.micronaut.data.annotation.Transient;
 import io.micronaut.serde.annotation.Serdeable;
 import jakarta.inject.Inject;
 import flight.pub.repository.CityRepository;
@@ -35,6 +36,7 @@ import flight.pub.repository.CityRepository;
 @Serdeable
 @MappedEntity
 public class Flight {
+    @NonNull
     @Id
     private String flightID;
     private String provider;
@@ -45,14 +47,12 @@ public class Flight {
     private LocalDateTime departureTime;
     private LocalDateTime arrivalTime;
 
-    private final CityRepository cityRepository;
-
     @Inject
-    public Flight(CityRepository cityRepository) {
-        this.cityRepository = cityRepository;
+    public Flight() {
     }
 
-    public Flight(String flightID, String provider, LocalDateTime departureTime, String departure, LocalDateTime arrivalTime, String destination, Float cost, CityRepository cityRepository) {
+    public Flight(String flightID, String provider, String destination, String departure,
+    LocalDateTime departureTime, LocalDateTime arrivalTime, Float cost, String flightNum) {
         this.flightID = flightID;
         this.provider = provider;
         this.departureTime = departureTime;
@@ -60,7 +60,7 @@ public class Flight {
         this.arrivalTime = arrivalTime;
         this.destination = destination;
         this.cost = cost;
-        this.cityRepository = cityRepository;
+        this.flightNum = flightNum;
     }
 
     public String getFlightID() {
@@ -95,18 +95,16 @@ public class Flight {
         this.departure = departure;
     }
 
+    @Transient
     public String getDepartureAirport() {
         // get from city table
-        return cityRepository.findByCityCode(departure).getName();
+        return "";
     }
 
-    // public String getArrivalDate() {
-    //     return arrivalDate;
-    // }
-
-    // public void setArrivalDate(String arrivalDate) {
-    //     this.arrivalDate = arrivalDate;
-    // }
+    @Transient
+    public String getArrivalAirport() {
+        return "";
+    }
 
     public LocalDateTime getArrivalTime() {
         return arrivalTime;
@@ -124,9 +122,6 @@ public class Flight {
         this.destination = arrival;
     }
 
-    public String getArrivalAirport() {
-        return cityRepository.findByCityCode(destination).getName();
-    }
     public Float getCost() {
         return cost;
     }
@@ -135,7 +130,16 @@ public class Flight {
         this.cost = cost;
     }
 
+    public void setFlightNum(String flightNum) {
+        this.flightNum = flightNum;
+    }
+
+    public String getFlightNum() {
+        return flightNum;
+    }
+
     // Get the duration of the flight in hours and minutes and as a string
+    @Transient
     public String getDuration(){
         long durationMinutes = MINUTES.between(
             getDepartureTime(), 
@@ -146,11 +150,13 @@ public class Flight {
         return "" + hours + " hr " + minutes + " min";
     }
 
+    @Transient
     public String getDepartureTimeFormatted(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm");
         return getDepartureTime().format(formatter);
     }
 
+    @Transient
     public String getArrivalTimeFormatted(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm");
         return getArrivalTime().format(formatter);
@@ -178,6 +184,7 @@ public class Flight {
             "\"arrival\":\"" + destination + "\"," +
             "\"arrivalAirport\":\"" + getArrivalAirport() + "\"," +
             "\"cost\":\"" + cost + "\"" +
+            "\"flightNum\":\"" + flightNum + "\"" +
         "}";
     }
 
@@ -190,6 +197,7 @@ public class Flight {
 
     public void temp1() {
         flightID = "JQ218";
+        flightNum = "JQ218";
         provider = "Jetstar";
         departure = "SYD";
         // departureAirport = "Kingsford Smith Airport";
@@ -202,18 +210,22 @@ public class Flight {
 
     public void temp2() {
         flightID = "Flight NPL";
+        flightNum = "FlightNPL";
     }
 
     public void temp3() {
         flightID = "Flight NYC";
+        flightNum = "FlightNYC";
     }
 
     public void temp4() {
         flightID = "Flight XYZ";
+        flightNum = "Flight XYZ";
     }
 
     public void f1_1() {
         flightID = "MU326";
+        flightNum = "MU326";
         provider = "China Eastern";
         departureTime = LocalDateTime.parse("2023-06-09T01:00:00");
         arrivalTime = LocalDateTime.parse("2023-06-09T08:15:00");
@@ -221,11 +233,12 @@ public class Flight {
         // departureAirport = "Sydney Aiport";
         destination = "PVG";
         // arrivalAirport = "Shanghai Pudong International Airport";
-        cost = 1356f;
+        cost = 456f;
     }
 
     public void f1_2() {
         flightID = "CZ301";
+        flightNum = "CZ301";
         provider = "China Southern";
         departureTime = LocalDateTime.parse("2023-06-10T13:15:00");
         arrivalTime = LocalDateTime.parse("2023-06-11T01:30:00");
@@ -238,6 +251,7 @@ public class Flight {
 
     public void f2_1() {
         flightID = "TR3";
+        flightNum = "TR3";
         provider = "Scoot";
         departureTime = LocalDateTime.parse("2023-06-09T02:35:00");
         arrivalTime = LocalDateTime.parse("2023-06-09T10:55:00");
@@ -250,6 +264,7 @@ public class Flight {
 
     public void f2_2() {
         flightID = "TR712";
+        flightNum = "TR712";
         provider = "Scoot";
         departureTime = LocalDateTime.parse("2023-06-09T21:35:00");
         arrivalTime = LocalDateTime.parse("2023-06-10T08:55:00");
@@ -262,6 +277,7 @@ public class Flight {
 
     public void f2_3() {
         flightID = "A3664";
+        flightNum = "A3664";
         provider = "Aegean";
         departureTime = LocalDateTime.parse("2023-06-10T13:20:00");
         arrivalTime = LocalDateTime.parse("2023-06-10T15:55:00");
@@ -274,6 +290,7 @@ public class Flight {
 
     public void f2_4() {
         flightID = "U23813";
+        flightNum = "U23813";
         provider = "easyJet";
         departureTime = LocalDateTime.parse("2023-06-10T17:25:00");
         arrivalTime = LocalDateTime.parse("2023-06-10T18:55:00");
@@ -286,6 +303,7 @@ public class Flight {
 
     public void f3_1() {
         flightID = "EY451";
+        flightNum = "EY451";
         provider = "Etihad Airways";
         departureTime = LocalDateTime.parse("2023-06-09T05:05:00");
         arrivalTime = LocalDateTime.parse("2023-06-09T19:35:00");
@@ -298,6 +316,7 @@ public class Flight {
 
     public void f3_2() {
         flightID = "EY31";
+        flightNum = "EY31";
         provider = "Etihad Airways";
         departureTime = LocalDateTime.parse("2023-06-09T22:25:00");
         arrivalTime = LocalDateTime.parse("2023-06-10T05:45:00");

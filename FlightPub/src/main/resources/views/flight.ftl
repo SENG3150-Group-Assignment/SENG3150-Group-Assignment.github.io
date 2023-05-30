@@ -32,13 +32,13 @@ The flight page which displays the details of a flight which can then be booked 
                                 <div class="col-sm-4">
                                     <p class="fw-bold mb-1">Airline</p>
                                     <p class="mb-0">
-                                        ${flight.airlineBrand}
+                                        ${flight.provider}
                                     </p>
                                 </div>
                                 <div class="col-sm-4">
                                     <p class="fw-bold mb-1">Flight Number</p>
                                     <p class="mb-0">
-                                        ${flight.title}
+                                        ${flight.flightNum}
                                     </p>
                                 </div>
                                 <div class="col-sm-4">
@@ -59,7 +59,7 @@ The flight page which displays the details of a flight which can then be booked 
                                 <div class="col-sm-4">
                                     <p class="fw-bold mb-1">To</p>
                                     <p class="mb-0">
-                                        ${flight.arrival} (${flight.arrivalAirport})
+                                        ${flight.destination} (${flight.arrivalAirport})
                                     </p>
                                 </div>
                                 <div class="col-sm-4">

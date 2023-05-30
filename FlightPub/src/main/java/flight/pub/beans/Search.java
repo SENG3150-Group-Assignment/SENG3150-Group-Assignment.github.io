@@ -18,10 +18,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import io.micronaut.core.annotation.Introspected;
+import io.micronaut.serde.annotation.Serdeable.Deserializable;
 import jakarta.inject.Singleton;
 
 @Singleton
 @Introspected
+@Deserializable
 public class Search {
     // @JsonProperty("location")
     private String location;

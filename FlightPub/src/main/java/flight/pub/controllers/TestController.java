@@ -13,6 +13,7 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.views.View;
+import jakarta.inject.Inject;
 import io.micronaut.scheduling.TaskExecutors;
 import io.micronaut.scheduling.annotation.ExecuteOn;
 
@@ -42,6 +43,7 @@ public class TestController {
     protected final CountryRepository countryRepository;
     protected final CityRepository cityRepository;
     
+    @Inject
     public TestController(CountryRepository countryRepository, CityRepository cityRepository) {
         this.countryRepository = countryRepository;
         this.cityRepository = cityRepository; 
