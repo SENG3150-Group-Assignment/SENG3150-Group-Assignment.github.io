@@ -15,6 +15,7 @@ package flight.pub.controllers;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
+import io.micronaut.data.exceptions.EmptyResultException;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Body;
@@ -89,8 +90,19 @@ public class FlightController {
         // groupTemp2.temp2();
         // groupTemp3.temp1();
         // groupTemp4.temp2();
-        Flight temp = flightRepository.findByFlightID("MU326");
-
+        
+        String flightID = "MU326";
+        Flight temp;
+        try {
+            temp = flightRepository.findByFlightID(flightID);
+        } catch (EmptyResultException e) {
+            System.out.println("No flight found with flightID: " + flightID);
+            // DEBUG ONLY: use dummy data
+            System.out.println("Using dummy data");
+            temp = new Flight();
+            temp.f2_1();
+        }
+        
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);
         configuration.setClassForTemplateLoading(FlightController.class, "/views");
         StringWriter writer = new StringWriter();
