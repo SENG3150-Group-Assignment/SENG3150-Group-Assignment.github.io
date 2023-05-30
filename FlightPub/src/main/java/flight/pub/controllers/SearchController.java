@@ -19,6 +19,8 @@ import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Body;
 
 import io.micronaut.views.View;
+import jakarta.inject.Inject;
+
 import freemarker.core.ParseException;
 import freemarker.template.Configuration;
 import freemarker.template.MalformedTemplateNameException;
@@ -37,11 +39,20 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import static java.time.temporal.ChronoUnit.MINUTES;
 
+import flight.pub.repository.FlightRepository;
 import flight.pub.beans.Flight;
 import flight.pub.beans.Search;
 
 @Controller("/search")
 public class SearchController {
+
+    protected final FlightRepository flightRepository;
+
+    @Inject
+    public SearchController(FlightRepository flightRepository) {
+        this.flightRepository = flightRepository;
+    }
+
     @Get("/")
     @View("advanced-search")
     public HttpResponse<?> searchGet() 
@@ -72,10 +83,12 @@ public class SearchController {
         // A search algorithm should be run to find flights, instead of hardcoding them
         searchData.searchFlights();
         
+
+        Flight f1_1 = flightRepository.findByFlightID("MU326");
+        Flight f1_2 = flightRepository.findByFlightID("CZ301");
         // TEMPORARY //
         // Create trip 1
-        Flight f1_1 = new Flight();
-        Flight f1_2 = new Flight();
+        // Flight f1_2 = new Flight();
         f1_1.f1_1();
         f1_2.f1_2();
         List<Flight> flights = Arrays.asList(f1_1, f1_2);

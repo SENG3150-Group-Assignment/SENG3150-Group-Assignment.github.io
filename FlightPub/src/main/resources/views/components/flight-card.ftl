@@ -18,7 +18,7 @@ in the user page to show the watchlist, previous flights and upcoming flights.
         </div>
         <div class="row text-center">
             <a href="/flight/booking" class="p-0 m-0">
-                ${flight.title}
+                ${flight.flightNum}
             </a>
         </div>
     </div>

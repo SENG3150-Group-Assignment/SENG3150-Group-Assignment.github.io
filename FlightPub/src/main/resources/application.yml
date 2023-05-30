@@ -24,4 +24,3 @@ datasources:
     dialect: SQL_SERVER
     db-type: mssql
     url: jdbc:sqlserver://flightpub-protodb.database.windows.net:1433;database=flightpub-protodb;user=FlightPubAdmin@flightpub-protodb;password={FlightPub1};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-  
