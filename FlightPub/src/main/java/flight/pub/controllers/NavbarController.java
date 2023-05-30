@@ -71,10 +71,10 @@ public class NavbarController {
     public HttpResponse<?> account()
             throws TemplateNotFoundException, MalformedTemplateNameException, ParseException, IOException, TemplateException {
         // Dummy data
-        FlightBean temp1 = new FlightBean();
-        FlightBean temp2 = new FlightBean();
-        FlightBean temp3 = new FlightBean();
-        FlightBean temp4 = new FlightBean();
+        Flight temp1 = new Flight();
+        Flight temp2 = new Flight();
+        Flight temp3 = new Flight();
+        Flight temp4 = new Flight();
         temp1.temp1();
         temp2.temp2();
         temp3.temp3();

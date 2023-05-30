@@ -18,11 +18,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import io.micronaut.core.annotation.Introspected;
+import io.micronaut.serde.annotation.Serdeable.Deserializable;
 import jakarta.inject.Singleton;
 
 @Singleton
 @Introspected
-public class SearchBean {
+@Deserializable
+public class Search {
     // @JsonProperty("location")
     private String location;
     // @JsonProperty("destination")
@@ -40,7 +42,7 @@ public class SearchBean {
     // @JsonProperty("passengerCount")
     private int passengerCount;
 
-    public SearchBean() {
+    public Search() {
         location = "";
         destination = "";
         startDate = LocalDate.now();
@@ -119,10 +121,10 @@ public class SearchBean {
     }
 
     // Search for flights based on the search data
-    public ArrayList<FlightBean> searchFlights(){
+    public ArrayList<Flight> searchFlights(){
         // TODO: implement
         // See sequence diagram in design document for implementation details
-        return new ArrayList<FlightBean>();
+        return new ArrayList<Flight>();
     }
 
 }

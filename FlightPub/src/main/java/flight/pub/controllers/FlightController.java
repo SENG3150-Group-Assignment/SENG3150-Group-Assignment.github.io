@@ -15,10 +15,12 @@ package flight.pub.controllers;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
+import io.micronaut.data.exceptions.EmptyResultException;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.views.View;
+import jakarta.inject.Inject;
 import freemarker.core.ParseException;
 import freemarker.template.Configuration;
 import freemarker.template.MalformedTemplateNameException;
@@ -32,18 +34,25 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import flight.pub.beans.FlightBean;
+import flight.pub.beans.Flight;
 import flight.pub.beans.GroupBookingBean;
 import flight.pub.beans.PassengerBean;
-import flight.pub.beans.SearchBean;
+import flight.pub.beans.Search;
+import flight.pub.repository.FlightRepository;
 
 @Controller("/flight")
 public class FlightController {
+    protected final FlightRepository flightRepository;
+
+    @Inject
+    public FlightController(FlightRepository flightRepository) {
+        this.flightRepository = flightRepository;
+    }
 
     // Handle the search form submission DEBUGGING ONLY
     @Post(value = "/blank", consumes = MediaType.APPLICATION_FORM_URLENCODED) // TODO get form to return json
     @View("display")
-    public HttpResponse<?> processSearch(@Body SearchBean searchData) {
+    public HttpResponse<?> processSearch(@Body Search searchData) {
         return HttpResponse.ok().body(searchData);
     }
 
@@ -64,33 +73,44 @@ public class FlightController {
             IOException, TemplateException {
 
         // Dummy data
-        FlightBean temp1 = new FlightBean();
-        FlightBean temp2 = new FlightBean();
-        FlightBean temp3 = new FlightBean();
-        FlightBean temp4 = new FlightBean();
-        temp1.f2_1();
-        temp2.f2_2();
-        temp3.f2_3();
-        temp4.f2_4();
+        // Flight temp1 = new Flight();
+        // Flight temp2 = new Flight();
+        // Flight temp3 = new Flight();
+        // Flight temp4 = new Flight();
+        // temp1.f2_1();
+        // temp2.f2_2();
+        // temp3.f2_3();
+        // temp4.f2_4();
 
-        GroupBookingBean groupTemp1 = new GroupBookingBean();
-        GroupBookingBean groupTemp2 = new GroupBookingBean();
-        GroupBookingBean groupTemp3 = new GroupBookingBean();
-        GroupBookingBean groupTemp4 = new GroupBookingBean();
-        groupTemp1.temp1();
-        groupTemp2.temp2();
-        groupTemp3.temp1();
-        groupTemp4.temp2();
-
+        // GroupBookingBean groupTemp1 = new GroupBookingBean();
+        // GroupBookingBean groupTemp2 = new GroupBookingBean();
+        // GroupBookingBean groupTemp3 = new GroupBookingBean();
+        // GroupBookingBean groupTemp4 = new GroupBookingBean();
+        // groupTemp1.temp1();
+        // groupTemp2.temp2();
+        // groupTemp3.temp1();
+        // groupTemp4.temp2();
+        
+        String flightID = "MU326";
+        Flight temp;
+        try {
+            temp = flightRepository.findByFlightID(flightID);
+        } catch (EmptyResultException e) {
+            System.out.println("No flight found with flightID: " + flightID);
+            // DEBUG ONLY: use dummy data
+            System.out.println("Using dummy data");
+            temp = new Flight();
+            temp.f2_1();
+        }
+        
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);
         configuration.setClassForTemplateLoading(FlightController.class, "/views");
         StringWriter writer = new StringWriter();
         Template template = configuration.getTemplate("flight.ftl");
         Map<String, Object> map = new HashMap<String, Object>();
-        System.out.println(temp1.getDepartureTime());
-        map.put("flights", Arrays.asList(temp1, temp2, temp3, temp4));
-        map.put("groups", Arrays.asList(groupTemp1, groupTemp2, groupTemp3, groupTemp4));
-        map.put("flight", temp1);
+        // map.put("flights", Arrays.asList(temp1, temp2, temp3, temp4));
+        // map.put("groups", Arrays.asList(groupTemp1, groupTemp2, groupTemp3, groupTemp4));
+        map.put("flight", temp);
         template.process(map, writer);
         return HttpResponse.ok().body(map);
     }
@@ -99,7 +119,7 @@ public class FlightController {
     @Get("/booking")
     @View("booking")
     public HttpResponse<?> displayBooking() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException, IOException, TemplateException {
-        FlightBean temp1 = new FlightBean();
+        Flight temp1 = new Flight();
         temp1.temp1();
 
         PassengerBean pTemp1 = new PassengerBean();
@@ -131,7 +151,7 @@ public class FlightController {
     @View("mystery-flight")
     public HttpResponse<?> displayMystery() throws TemplateNotFoundException,
         MalformedTemplateNameException, ParseException, IOException, TemplateException {
-        FlightBean temp1 = new FlightBean();
+        Flight temp1 = new Flight();
         temp1.temp1();
 
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);

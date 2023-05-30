@@ -34,23 +34,33 @@ import java.util.HashMap;
 import java.util.Map;
 
 import flight.pub.beans.DestinationBean;
-import flight.pub.beans.SearchBean;
+import flight.pub.beans.Search;
 
 @Controller("/home")
 public class HomeController {
 
     // Handle the search form submission
-    @Post(value = "/search", consumes = MediaType.APPLICATION_FORM_URLENCODED) // TODO get form to return json
+    @Get("/display")
     @View("display")
-    public HttpResponse<?> processSearch(@Body SearchBean searchData) {
-        return HttpResponse.ok().body(searchData);
+    public HttpResponse<?> processSearch() throws TemplateNotFoundException, 
+    MalformedTemplateNameException, ParseException, IOException, TemplateException {
+        String debug = "hello";
+
+        Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);
+        configuration.setClassForTemplateLoading(HomeController.class, "/views");
+        StringWriter writer = new StringWriter();
+        Template template = configuration.getTemplate("index.ftl");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("debug", debug);
+        template.process(map, writer);
+        return HttpResponse.ok().body(map);
     }
 
     // Display the home page
     @Get("/")
     @View("index")
-    public HttpResponse<?> index() throws TemplateNotFoundException, MalformedTemplateNameException, ParseException,
-            IOException, TemplateException {
+    public HttpResponse<?> index() throws TemplateNotFoundException, 
+            MalformedTemplateNameException, ParseException, IOException, TemplateException {
 
         // Dummy data
         DestinationBean nepal = new DestinationBean();

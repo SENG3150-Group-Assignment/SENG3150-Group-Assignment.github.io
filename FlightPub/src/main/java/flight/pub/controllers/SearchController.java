@@ -37,8 +37,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import static java.time.temporal.ChronoUnit.MINUTES;
 
-import flight.pub.beans.FlightBean;
-import flight.pub.beans.SearchBean;
+import flight.pub.beans.Flight;
+import flight.pub.beans.Search;
 
 @Controller("/search")
 public class SearchController {
@@ -48,7 +48,7 @@ public class SearchController {
             throws TemplateNotFoundException, MalformedTemplateNameException, ParseException,
             IOException, TemplateException{
         // If a get request is used send an empty search bean to the view and show no results
-        SearchBean searchData = new SearchBean();
+        Search searchData = new Search();
         List<Object> trips = new ArrayList<Object>();
         
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);
@@ -64,7 +64,7 @@ public class SearchController {
 
     @Post(value="/", consumes = MediaType.APPLICATION_FORM_URLENCODED)
     @View("advanced-search")
-    public HttpResponse<?> searchPost(@Body SearchBean searchData)
+    public HttpResponse<?> searchPost(@Body Search searchData)
             throws TemplateNotFoundException, MalformedTemplateNameException, ParseException,
             IOException, TemplateException {
         List<Object> trips = new ArrayList<Object>();
@@ -74,19 +74,19 @@ public class SearchController {
         
         // TEMPORARY //
         // Create trip 1
-        FlightBean f1_1 = new FlightBean();
-        FlightBean f1_2 = new FlightBean();
+        Flight f1_1 = new Flight();
+        Flight f1_2 = new Flight();
         f1_1.f1_1();
         f1_2.f1_2();
-        List<FlightBean> flights = Arrays.asList(f1_1, f1_2);
+        List<Flight> flights = Arrays.asList(f1_1, f1_2);
         HashMap<String, Object> trip1 = MakeTrip(flights);
         trips.add(trip1);
 
         // Create trip 2
-        FlightBean f2_1 = new FlightBean();
-        FlightBean f2_2 = new FlightBean();
-        FlightBean f2_3 = new FlightBean();
-        FlightBean f2_4 = new FlightBean();
+        Flight f2_1 = new Flight();
+        Flight f2_2 = new Flight();
+        Flight f2_3 = new Flight();
+        Flight f2_4 = new Flight();
         f2_1.f2_1();
         f2_2.f2_2();
         f2_3.f2_3();
@@ -96,8 +96,8 @@ public class SearchController {
         trips.add(trip2);
 
         // Create trip 3
-        FlightBean f3_1 = new FlightBean();
-        FlightBean f3_2 = new FlightBean();
+        Flight f3_1 = new Flight();
+        Flight f3_2 = new Flight();
         f3_1.f3_1();
         f3_2.f3_2();
         flights = Arrays.asList(f3_1, f3_2);
@@ -115,12 +115,12 @@ public class SearchController {
         return HttpResponse.ok().body(map);
     }
 
-    private HashMap<String, Object> MakeTrip(List<FlightBean> flights){
+    private HashMap<String, Object> MakeTrip(List<Flight> flights){
         // Will be replaced with a trip object TODO
         HashMap<String, Object> trip = new HashMap<String, Object>();
         trip.put("flights", flights);
         float totalPrice = 0;
-        for (FlightBean flight : flights) {
+        for (Flight flight : flights) {
             totalPrice += flight.getCost();
         }
 
@@ -136,7 +136,7 @@ public class SearchController {
         trip.put("cost", totalPrice);
         trip.put("duration", ""+hours+" hr "+minutes+" min");
         trip.put("stops", flights.size() - 1);
-        trip.put("airlineBrand", flights.get(0).getAirlineBrand());
+        trip.put("airlineBrand", flights.get(0).getProvider());
         trip.put("departureTime", flights.get(0).getDepartureTime().format(timeFormat));
         trip.put("arrivalTime", flights.get(flights.size() - 1).getArrivalTime().format(timeFormat));
         LocalDateTime departureTime = flights.get(0).getDepartureTime();

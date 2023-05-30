@@ -32,13 +32,13 @@ The flight page which displays the details of a flight which can then be booked 
                                 <div class="col-sm-4">
                                     <p class="fw-bold mb-1">Airline</p>
                                     <p class="mb-0">
-                                        ${flight.airlineBrand}
+                                        ${flight.provider}
                                     </p>
                                 </div>
                                 <div class="col-sm-4">
                                     <p class="fw-bold mb-1">Flight Number</p>
                                     <p class="mb-0">
-                                        ${flight.title}
+                                        ${flight.flightNum}
                                     </p>
                                 </div>
                                 <div class="col-sm-4">
@@ -59,7 +59,7 @@ The flight page which displays the details of a flight which can then be booked 
                                 <div class="col-sm-4">
                                     <p class="fw-bold mb-1">To</p>
                                     <p class="mb-0">
-                                        ${flight.arrival} (${flight.arrivalAirport})
+                                        ${flight.destination} (${flight.arrivalAirport})
                                     </p>
                                 </div>
                                 <div class="col-sm-4">
@@ -110,10 +110,10 @@ The flight page which displays the details of a flight which can then be booked 
                             <hr />
                             <p class="fw-bold mb-1">Price</p>
                             <p class="h2 mb-4">$${flight.cost}</p>
-                            <button class="btn btn-success btn-lg mb-3">
+                            <button onclick='window.location.href = "/navbar/user";' class="btn btn-success btn-lg mb-3">
                                 Add to Watchlist
                             </button>
-                            <button class="btn btn-primary btn-lg mb-3">Book Now</button>
+                            <button onclick='window.location.href = "/flight/booking";' class="btn btn-primary btn-lg mb-3">Book Now</button>
                             <a
                                 class="btn btn-primary btn-lg mb-3"
                                 href="group-booking.html">
