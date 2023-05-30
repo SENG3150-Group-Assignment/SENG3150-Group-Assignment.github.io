@@ -18,8 +18,6 @@ import io.micronaut.data.exceptions.DataAccessException;
 import io.micronaut.data.jdbc.annotation.JdbcRepository;
 import io.micronaut.data.model.query.builder.sql.Dialect;
 import io.micronaut.data.repository.PageableRepository;
-import io.micronaut.data.annotation.Join;
-
 import java.time.LocalDateTime;
 
 import javax.transaction.Transactional;

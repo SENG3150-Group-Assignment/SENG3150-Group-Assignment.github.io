@@ -1,3 +1,7 @@
+/*
+ * This page will control the booking wizard, to be implemented.
+ */
+
 package flight.pub.controllers;
 
 import io.micronaut.http.HttpResponse;
