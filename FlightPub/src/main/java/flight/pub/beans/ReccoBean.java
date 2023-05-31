@@ -9,6 +9,10 @@ public class ReccoBean{
         reccomendations = new Vector<Reccomendation>();
     }
 
+    //////////////////////////////////////
+    //logic functions
+    //////////////////////////////////////
+
     public void ReccomendDestinations(String userAcc){
         if (!userAcc.equals("")){
             //pull from seach history
@@ -73,6 +77,9 @@ public class ReccoBean{
         sortLocationsOnWeight();
     }
 
+    //////////////////////////////////////
+    //database functions
+    //////////////////////////////////////
     private void DBSearch_SearchHistory(String user){
         //pull last 20 unique flight locations from flight history
 
@@ -114,13 +121,30 @@ public class ReccoBean{
         return results;
     }
 
-    private void sortLocationsOnWeight(){
-        //sort reccomendations by weighting
-    }
-
     public void updateReccomendations(){
         for (int i = 0; i<5; i++){
             //update db recently reccomeneded w/ this value
         }
     }
+
+    //////////////////////////////////////
+    //sorting functions
+    //////////////////////////////////////
+
+    private void sortLocationsOnWeight(){
+        //sort reccomendations by weighting
+    }
+
+    //////////////////////////////////////
+    //getters and setters
+    //////////////////////////////////////
+    public Vector<Reccomendation> getReccomendations() {
+        return reccomendations;
+    }
+
+    public void setReccomendations(Vector<Reccomendation> reccomendations) {
+        this.reccomendations = reccomendations;
+    }
+
+    
 }

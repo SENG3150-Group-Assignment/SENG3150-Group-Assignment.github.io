@@ -44,6 +44,10 @@ public class LocationBean {
         
     }
 
+    ////////////////////////////
+    //database functions
+    ////////////////////////////
+    
     private Vector DBTagSearch(String tagSelection[]){
         Vector<Location> returnList = new Vector<Location>();
         //search database for locations with matching tags
@@ -54,6 +58,18 @@ public class LocationBean {
 
     private void sortByMatches(){
         //sort cities by number of tag matches
+    }
+
+    /////////////////////////////
+    //getters and setters
+    /////////////////////////////
+
+    public Vector<Location> getCities() {
+        return cities;
+    }
+
+    public void setCities(Vector<Location> cities) {
+        this.cities = cities;
     }
 
 }
