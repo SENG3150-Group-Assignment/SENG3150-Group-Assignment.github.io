@@ -1,5 +1,9 @@
 package flight.pub.controllers;
 
+
+public class LokiController {
+    //handles loki search
+
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;

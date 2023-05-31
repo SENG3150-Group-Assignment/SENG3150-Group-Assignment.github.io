@@ -109,5 +109,11 @@ public class HomeController {
         return HttpResponse.ok().body(map);
      
     }
+
+    //do stuff to handle reccomendations
+    //send login status, useremail if logged in, blank if not logged in
+    //call IP search too
+    //if logged in finalise by calling updateReccomendations
+
     
 }
