@@ -35,7 +35,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import flight.pub.beans.Flight;
-import flight.pub.beans.GroupBookingBean;
 import flight.pub.beans.PassengerBean;
 import flight.pub.beans.Search;
 import flight.pub.repository.FlightRepository;

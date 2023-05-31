@@ -27,6 +27,7 @@ import freemarker.template.MalformedTemplateNameException;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateNotFoundException;
+import io.micronaut.data.exceptions.EmptyResultException;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -83,14 +84,23 @@ public class SearchController {
         // A search algorithm should be run to find flights, instead of hardcoding them
         searchData.searchFlights();
         
-
-        Flight f1_1 = flightRepository.findByFlightID("MU326");
-        Flight f1_2 = flightRepository.findByFlightID("CZ301");
+        
+        Flight f1_1, f1_2;
+        try {
+            f1_1 = flightRepository.findByFlightID("MU326");
+            f1_2 = flightRepository.findByFlightID("CZ301");
+        } catch (EmptyResultException e) {
+            // temporary
+            System.out.print("No results found in database, using hardcoded flights");
+            f1_1 = new Flight();
+            f1_2 = new Flight();
+            f1_1.f1_1();
+            f1_2.f1_2();
+        }
         // TEMPORARY //
         // Create trip 1
         // Flight f1_2 = new Flight();
-        f1_1.f1_1();
-        f1_2.f1_2();
+        
         List<Flight> flights = Arrays.asList(f1_1, f1_2);
         HashMap<String, Object> trip1 = MakeTrip(flights);
         trips.add(trip1);

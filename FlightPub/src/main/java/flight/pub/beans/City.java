@@ -13,13 +13,9 @@ package flight.pub.beans;
 import io.micronaut.context.annotation.Prototype;
 import io.micronaut.core.annotation.Introspected;
 import io.micronaut.core.annotation.NonNull;
-import io.micronaut.data.annotation.GeneratedValue;
 import io.micronaut.data.annotation.Id;
 import io.micronaut.data.annotation.MappedEntity;
 import io.micronaut.serde.annotation.Serdeable;
-
-import io.micronaut.data.annotation.Relation;
-import java.util.List;
 
 @Prototype
 @Introspected

@@ -37,4 +37,8 @@
      long update(@NonNull @NotBlank @Id String cityCode, @NonNull @NotBlank String name, @NonNull @NotBlank String timeZone, String imageID, String countryCode, @NonNull @NotBlank String temperatureTag, String description);
 
      City findByCityCode(@NonNull @NotBlank @Id String cityCode);
+
+     //City findByName(@NonNull @NotBlank @Id String name);
+
+     //City findByTemperature(@NonNull @NotBlank @Id String temp);
  }
